@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { Usuario } from '../shared/model/usuario';
+import { Usuario } from '../shared/model/Usuario';
 import {MatCard} from '@angular/material/card';
 import {MatFormField} from '@angular/material/form-field';
 import {FormsModule} from '@angular/forms';
 import {listaUsuarios} from '../shared/model/listaUsuarios';
 import {NgForOf} from '@angular/common';
+import {MatInput} from '@angular/material/input';
 
 @Component({
   selector: 'app-root',
@@ -13,12 +14,14 @@ import {NgForOf} from '@angular/common';
     MatCard,
     MatFormField,
     FormsModule,
-    NgForOf
+    NgForOf,
+    MatInput
   ],
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'projeto-p4s';
+  idNovoUsuario: number = 0;
   listaUsuarios: Usuario[] = listaUsuarios;
   usuario: Usuario;
 
@@ -26,10 +29,14 @@ export class AppComponent {
     this.usuario = new Usuario();
   }
 
-  cadastrar(): void {
-    this.listaUsuarios.push(this.usuario);
-    this.usuario = new Usuario();
-    console.log(this.listaUsuarios);
+  getNovoId(): number {
+    return this.idNovoUsuario = this.listaUsuarios.length + 1;
   }
 
+  cadastrar(): void {
+    this.usuario.setId(this.getNovoId());
+    this.listaUsuarios.push(this.usuario);
+    this.usuario = new Usuario(); //apaga o texto dos input
+  }
 }
+

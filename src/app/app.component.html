@@ -1,23 +1,24 @@
 <h1>Cadastro de Usuário</h1>
 
-<mat-form-field>
 
-<input matInput [(ngModel)] = "usuario.nome" placeholder = "Nome">
+
+<mat-form-field>
+<input matInput [(ngModel)] = "usuario.nome">
 </mat-form-field>
 <br>
 
 <mat-form-field>
-  <input matInput [(ngModel)] = "usuario.email" placeholder = "Email">
+  <input matInput [(ngModel)] = "usuario.email">
 </mat-form-field>
 <br>
 
 <mat-form-field>
-<input matInput [(ngModel)] = "usuario.senha" placeholder = "Senha">
+<input matInput [(ngModel)] = "usuario.senha">
 </mat-form-field>
 <br>
 
 <button (click) = "cadastrar()">Enviar</button>
 
 @for (usuario of listaUsuarios; track usuario.getId()){
-  <li>{{usuario.getNome()}}</li>
+  <li>{{usuario.getNome()}} - id: {{usuario.getId()}}</li>
 }

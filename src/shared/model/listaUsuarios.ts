@@ -1,4 +1,4 @@
-import {Usuario} from './usuario';
+import {Usuario} from './Usuario';
 
 export const listaUsuarios : Usuario[] =[
   new Usuario(1, 'Fulano', 'j@gmail.com', '123'),
