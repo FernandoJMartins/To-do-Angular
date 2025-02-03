@@ -6,6 +6,7 @@ import {FormsModule} from '@angular/forms';
 import {listaUsuarios} from '../shared/model/listaUsuarios';
 import {NgForOf} from '@angular/common';
 import {MatInput} from '@angular/material/input';
+import {MatButton} from '@angular/material/button';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,8 @@ import {MatInput} from '@angular/material/input';
     MatFormField,
     FormsModule,
     NgForOf,
-    MatInput
+    MatInput,
+    MatButton
   ],
   styleUrl: './app.component.css'
 })

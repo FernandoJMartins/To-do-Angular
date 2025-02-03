@@ -1,7 +1,8 @@
-<h1>Cadastro de Usuário</h1>
 
 
 
+<div>
+  <h1>Cadastro de Usuário</h1>
 <mat-form-field>
 <input matInput [(ngModel)] = "usuario.nome">
 </mat-form-field>
@@ -17,8 +18,11 @@
 </mat-form-field>
 <br>
 
-<button (click) = "cadastrar()">Enviar</button>
+<button mat-button (click) = "cadastrar()">Enviar</button>
+</div>
 
+<div>
 @for (usuario of listaUsuarios; track usuario.getId()){
   <li>{{usuario.getNome()}} - id: {{usuario.getId()}}</li>
 }
+</div>
