@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
 import { Usuario } from '../shared/model/Usuario';
-import {MatCard} from '@angular/material/card';
-import {MatFormField} from '@angular/material/form-field';
+import {MatCard, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle} from '@angular/material/card';
+import {MatFormField, MatLabel} from '@angular/material/form-field';
 import {FormsModule} from '@angular/forms';
 import {listaUsuarios} from '../shared/model/listaUsuarios';
 import {NgForOf} from '@angular/common';
 import {MatInput} from '@angular/material/input';
-import {MatButton} from '@angular/material/button';
+import {MatButton, MatIconButton} from '@angular/material/button';
+import {MatIcon} from '@angular/material/icon';
+import {CadastroUsuarioComponent} from './usuario/cadastro-usuario/cadastro-usuario.component';
+import {ListagemUsuarioComponent} from './usuario/listagem-usuario/listagem-usuario.component';
 
 @Component({
   selector: 'app-root',
@@ -17,28 +20,19 @@ import {MatButton} from '@angular/material/button';
     FormsModule,
     NgForOf,
     MatInput,
-    MatButton
+    MatButton,
+    MatLabel,
+    MatIconButton,
+    MatIcon,
+    MatCardHeader,
+    MatCardContent,
+    MatCardTitle,
+    MatCardSubtitle,
+    CadastroUsuarioComponent,
+    ListagemUsuarioComponent
   ],
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'projeto-p4s';
-  idNovoUsuario: number = 0;
-  listaUsuarios: Usuario[] = listaUsuarios;
-  usuario: Usuario;
-
-  constructor() {
-    this.usuario = new Usuario();
-  }
-
-  getNovoId(): number {
-    return this.idNovoUsuario = this.listaUsuarios.length + 1;
-  }
-
-  cadastrar(): void {
-    this.usuario.setId(this.getNovoId());
-    this.listaUsuarios.push(this.usuario);
-    this.usuario = new Usuario(); //apaga o texto dos input
-  }
 }
 

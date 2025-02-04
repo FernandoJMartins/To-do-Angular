@@ -1,0 +1,11 @@
+<h1>Lista de Usuário</h1>
+
+@for (usuario of listaUsuarios; track usuario.getId()){
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>id: {{usuario.getId()}} </mat-card-title>
+      <mat-card-subtitle>Nome: {{usuario.getNome()}} -- Email: {{usuario.getEmail()}} -- Senha: {{usuario.getSenha()}}</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+
+}
