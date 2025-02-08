@@ -6,6 +6,10 @@
       <mat-card-title>id: {{usuario.getId()}} </mat-card-title>
       <mat-card-subtitle>Nome: {{usuario.getNome()}} -- Email: {{usuario.getEmail()}} -- Senha: {{usuario.getSenha()}}</mat-card-subtitle>
     </mat-card-header>
+    <mat-card-actions>
+      <button mat-button (click)="editar(usuario)">Editar</button>
+      <button mat-button (click)="excluir(usuario)">Excluir</button>
+    </mat-card-actions>
   </mat-card>
 
 }

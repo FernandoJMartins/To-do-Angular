@@ -1,19 +1,41 @@
 import { Component } from '@angular/core';
-import {MatCard, MatCardHeader, MatCardSubtitle, MatCardTitle} from "@angular/material/card";
-import {listaUsuarios} from '../../../shared/model/listaUsuarios';
+import {MatCard, MatCardActions, MatCardHeader, MatCardSubtitle, MatCardTitle} from "@angular/material/card";
+import {Usuario} from '../../../shared/model/Usuario';
+import {MatButton} from '@angular/material/button';
+import {UsuarioService} from '../../shared/services/usuario.service';
 
 @Component({
   selector: 'app-listagem-usuario',
-    imports: [
-        MatCard,
-        MatCardHeader,
-        MatCardSubtitle,
-        MatCardTitle
-    ],
+  imports: [
+    MatCard,
+    MatCardHeader,
+    MatCardSubtitle,
+    MatCardTitle,
+    MatCardActions,
+    MatButton
+  ],
   templateUrl: './listagem-usuario.component.html',
   styleUrl: './listagem-usuario.component.css'
 })
 export class ListagemUsuarioComponent {
 
-  protected readonly listaUsuarios = listaUsuarios;
+  listaUsuarios: Array<Usuario> = [];
+
+  constructor(private usuarioService: UsuarioService) {
+  }
+
+  ngOnInit(): void {
+    this.listaUsuarios = this.usuarioService.listar();
+  }
+
+  public editar(usuario: Usuario): void {  //desnecessario
+    console.log('user alterado');
+  }
+
+  public excluir(usuario :Usuario): void {  //outra funcao nescessaria
+    const indexToRemove = this.listaUsuarios.indexOf(usuario);
+    if (indexToRemove >= 0){
+      this.listaUsuarios.splice(indexToRemove, 1);
+    }
+  }
 }
