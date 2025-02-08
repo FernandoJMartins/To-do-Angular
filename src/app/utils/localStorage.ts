@@ -3,7 +3,6 @@ import { Usuario } from "../shared/model/Usuario";
 export function saveUser(key: string, user: Usuario): void {
   const userData = {
     id: user.id,
-    email: user.email,
   };
   localStorage.setItem(key, JSON.stringify(userData));
 }
