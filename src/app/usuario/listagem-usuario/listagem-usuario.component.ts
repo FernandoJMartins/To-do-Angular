@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatCard, MatCardActions, MatCardHeader, MatCardSubtitle, MatCardTitle} from "@angular/material/card";
-import {Usuario} from '../../../shared/model/Usuario';
+import {Usuario} from '../../shared/model/Usuario';
 import {MatButton} from '@angular/material/button';
 import {UsuarioService} from '../../shared/services/usuario.service';
+
 
 @Component({
   selector: 'app-listagem-usuario',
@@ -17,7 +18,7 @@ import {UsuarioService} from '../../shared/services/usuario.service';
   templateUrl: './listagem-usuario.component.html',
   styleUrl: './listagem-usuario.component.css'
 })
-export class ListagemUsuarioComponent {
+export class ListagemUsuarioComponent implements OnInit {
 
   listaUsuarios: Array<Usuario> = [];
 
@@ -25,7 +26,9 @@ export class ListagemUsuarioComponent {
   }
 
   ngOnInit(): void {
-    this.listaUsuarios = this.usuarioService.listar();
+      this.usuarioService.listar().subscribe(
+        listaUsuarios => this.listaUsuarios = listaUsuarios
+      )
   }
 
   public editar(usuario: Usuario): void {  //desnecessario
