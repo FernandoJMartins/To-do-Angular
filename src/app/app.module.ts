@@ -7,11 +7,11 @@ import {HttpClientModule, provideHttpClient} from '@angular/common/http';
 import {CadastroUsuarioComponent} from './usuario/cadastro-usuario/cadastro-usuario.component';
 import {ListagemUsuarioComponent} from './usuario/listagem-usuario/listagem-usuario.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { LoginModule } from './login/login.module';
 import { AppRoutingModule } from './app-routing.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { AuthService } from './shared/services/auth.service';
 import { MensagemSnackService } from './shared/services/snack.service';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,9 +23,8 @@ import { MensagemSnackService } from './shared/services/snack.service';
     ListagemUsuarioComponent,
     BrowserModule,
     BrowserAnimationsModule,
-    LoginModule,
     AppRoutingModule,
-
+    AuthModule,
   ],
   providers: [
     provideHttpClient(),

@@ -1,0 +1,69 @@
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+  <div class="flex justify-center">
+    <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-indigo-900">Realize o seu login no sistema</h2>
+  </div>
+
+  <div class="mt-10 w-full sm:mx-auto sm:w-full sm:max-w-sm">
+    <mat-card appearance="outlined" class="!bg-indigo-100 p-4">
+      <mat-card-content>
+
+        <form [formGroup]="loginForm" class="space-y-6" (ngSubmit)="onSubmit()">
+          <div>
+            <label for="email" class="block text-sm/6 font-medium text-indigo-800">Email</label>
+            <div class="mt-2">
+              <mat-form-field class="w-full">
+                <mat-label>Email</mat-label>
+                <input
+                  matInput
+                  placeholder="pat@example.com"
+                  [formControl]="emailFormControl"
+                  (blur)="updateErrorMessage()"
+                  required
+                />
+                @if (emailFormControl.hasError('required')) {
+                  <mat-error>
+                    {{ emailErrorMessage() }}
+                  </mat-error>
+                }
+              </mat-form-field>
+             </div>
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between">
+              <label for="password" class="block text-sm/6 font-medium text-indigo-800">Senha</label>
+            </div>
+            <div class="mt-2">
+              <mat-form-field
+                class="w-full">
+                <mat-label>Senha</mat-label>
+                <input
+                  matInput
+                  [formControl]="passwordFormControl"
+                  type="password"
+                  (blur)="onBlur()"
+                  required
+                  />
+                  @if (passwordFormControl.hasError('required')) {
+                    <mat-error>
+                      {{ passwordErrorMessage() }}
+                    </mat-error>
+                  }
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div
+            class="flex justify-center">
+            <button type="submit" [disabled]="loginForm.invalid" (click)="onSubmit()" mat-flat-button class="w-full !rounded-md">Entrar</button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+
+    <p class="mt-10 text-center text-sm/6 text-black-500">
+      Não possui cadastro?
+      <a routerLink="/sign-up" class="cursor-pointer font-semibold text-indigo-600 hover:text-indigo-500">Crie uma conta agora!</a>
+    </p>
+  </div>
+</div>

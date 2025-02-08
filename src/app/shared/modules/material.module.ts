@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+import { MatError, MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButton } from '@angular/material/button';
@@ -21,6 +21,7 @@ import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
       MatButton,
       MatCardModule,
       MatSnackBarModule,
+      MatError,
 
   ],
   exports: [
@@ -31,6 +32,7 @@ import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
     MatLabel,
     MatCardModule,
     MatSnackBarModule,
+    MatError,
   ]
 })
 export class MaterialModule { }

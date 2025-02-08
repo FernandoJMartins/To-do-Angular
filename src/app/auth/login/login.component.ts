@@ -2,21 +2,16 @@ import { Component, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { merge } from 'rxjs';
-import { MaterialModule } from '../shared/modules/material.module';
+import { MaterialModule } from '../../shared/modules/material.module';
 import { CommonModule } from '@angular/common';
-import { AuthService } from '../shared/services/auth.service';
-import { MensagemSnackService } from '../shared/services/snack.service';
+import { AuthService } from '../../shared/services/auth.service';
+import { MensagemSnackService } from '../../shared/services/snack.service';
 import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  imports: [
-    CommonModule,
-    FormsModule,
-    MaterialModule,
-    ReactiveFormsModule,
-    RouterLink,
-  ],
+  standalone: false,
+
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
