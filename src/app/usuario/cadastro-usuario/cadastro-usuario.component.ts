@@ -42,7 +42,6 @@ export class CadastroUsuarioComponent implements OnInit {
   }
 
   cadastrar(): void {
-        this.usuario.setId(this.getNovoId()); //devia ta em services
         this.usuarioService.inserir(this.usuario).subscribe(
           usuarioHttp => console.log(usuarioHttp)
         );
