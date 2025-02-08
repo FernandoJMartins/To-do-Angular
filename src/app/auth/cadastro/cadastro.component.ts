@@ -78,5 +78,5 @@ export class CadastroComponent {
   //         this.snackService.erro('Erro ao realizar login');
   //       }
   //   );
-  // }
+  }
 }
