@@ -3,6 +3,7 @@ import { MensagemSnackService } from '../../shared/services/snack.service';
 import { AuthService } from '../../shared/services/auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { saveUserData } from '../../utils/localStorage';
 
 @Component({
   selector: 'app-cadastro',
@@ -85,8 +86,7 @@ export class CadastroComponent {
       ).subscribe(
         (register) => {
           this.snackService.sucesso('Cadastro realizado com sucesso');
-          localStorage.setItem('accessToken', register.accessToken);
-          localStorage.setItem('userId', String(register.user.id));
+          saveUserData(register);
           this.router.navigate(['/tasks']);
         },
         (error) => {

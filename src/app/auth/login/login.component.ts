@@ -3,6 +3,7 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { AuthService } from '../../shared/services/auth.service';
 import { MensagemSnackService } from '../../shared/services/snack.service';
 import { Router, RouterLink } from '@angular/router';
+import { saveUserData } from '../../utils/localStorage';
 
 @Component({
   selector: 'app-login',
@@ -60,8 +61,7 @@ export class LoginComponent {
       this.emailFormControl.value, this.passwordFormControl.value).subscribe(
         (login) => {
           this.snackService.sucesso('Login realizado com sucesso');
-          localStorage.setItem('accessToken', login.accessToken);
-          localStorage.setItem('userId', String(login.user.id));
+          saveUserData(login);
           this.router.navigate(['/tasks']);
         },
         (error) => {

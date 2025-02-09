@@ -15,6 +15,7 @@ import { MaterialModule } from './shared/modules/material.module';
 import { TaskService } from './shared/services/task.service';
 import { TasksModule } from './tasks/tasks.module';
 import { LogoModule } from './shared/components/logo/logo.module';
+import { provideNativeDateAdapter } from '@angular/material/core';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,10 +31,12 @@ import { LogoModule } from './shared/components/logo/logo.module';
     MaterialModule,
     TasksModule,
     LogoModule,
+    FormsModule,
   ],
   providers: [
     provideHttpClient(),
     provideAnimationsAsync(),
+    provideNativeDateAdapter(),
     AuthService,
     MensagemSnackService,
     TaskService,

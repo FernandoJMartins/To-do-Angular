@@ -1,26 +1,27 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CreateTaskComponent } from './create-task/create-task.component';
 import { ListagemTaskComponent } from './listagem-task/listagem-task.component';
 import { TasksComponent } from './tasks.component';
 import { MaterialModule } from '../shared/modules/material.module';
-
+import { FormTaskComponent } from './form-task/form-task.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    CreateTaskComponent,
+    FormTaskComponent,
     ListagemTaskComponent,
     TasksComponent,
   ],
   imports: [
     CommonModule,
     MaterialModule,
+    ReactiveFormsModule,
   ],
   exports: [
     TasksComponent,
-    CreateTaskComponent,
-    ListagemTaskComponent
+    ListagemTaskComponent,
+    FormTaskComponent,
   ]
 })
 export class TasksModule { }

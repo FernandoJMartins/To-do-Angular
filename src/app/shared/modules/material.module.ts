@@ -6,7 +6,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule} from '@angular/material/snack-bar';
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+import  {MatDatepickerModule } from '@angular/material/datepicker';
 
 
 
@@ -23,7 +25,9 @@ import { MatSnackBarModule} from '@angular/material/snack-bar';
       MatError,
       MatFormFieldModule,
       MatButtonModule,
-
+      MatDialogModule,
+      MatSelectModule,
+      MatDatepickerModule,
   ],
   exports: [
     MatFormFieldModule,
@@ -35,6 +39,9 @@ import { MatSnackBarModule} from '@angular/material/snack-bar';
     MatError,
     MatFormFieldModule,
     MatButtonModule,
+    MatDialogModule,
+    MatSelectModule,
+    MatDatepickerModule,
   ]
 })
 export class MaterialModule { }

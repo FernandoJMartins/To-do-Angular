@@ -1,12 +1,17 @@
-import { Usuario } from "../shared/model/Usuario";
+import { Login } from "../shared/types/Login";
 
-export function saveUser(key: string, user: Usuario): void {
-  const userData = {
-    id: user.id,
-  };
-  localStorage.setItem(key, JSON.stringify(userData));
+export function saveUserData(login: Login): void {
+  localStorage.setItem("accessToken", login.accessToken);
+  localStorage.setItem("userId", login.user.id.toString());
 }
 
-export function loadUser(key: string): Usuario {
-    return JSON.parse(localStorage.getItem(key) || '{}');
+export function getCurrentUserData(): Login {
+  const login: Login = {
+    accessToken: localStorage.getItem("accessToken") || "",
+    user: {
+      id: Number(localStorage.getItem("userId")),
+      email: ""
+    }
+  }
+  return login;
 }
