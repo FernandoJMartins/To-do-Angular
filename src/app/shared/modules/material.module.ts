@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { MatError, MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
-import { MatButton } from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -18,21 +18,23 @@ import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
       MatIconModule,
       MatInputModule,
       MatLabel,
-      MatButton,
       MatCardModule,
       MatSnackBarModule,
       MatError,
+      MatFormFieldModule,
+      MatButtonModule,
 
   ],
   exports: [
     MatFormFieldModule,
-    MatButton,
     MatIconModule,
     MatInputModule,
     MatLabel,
     MatCardModule,
     MatSnackBarModule,
     MatError,
+    MatFormFieldModule,
+    MatButtonModule,
   ]
 })
 export class MaterialModule { }
