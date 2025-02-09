@@ -17,7 +17,7 @@ export class CadastroComponent {
     emailFormControl: FormControl = new FormControl('', [Validators.required, Validators.email]);
     passwordFormControl: FormControl = new FormControl('', [Validators.required, Validators.minLength(5)]);
 
-    readonly loginForm = new FormGroup({
+    readonly registerForm = new FormGroup({
       nome: this.nomeFormControl,
       email: this.emailFormControl,
       password: this.passwordFormControl
@@ -30,14 +30,7 @@ export class CadastroComponent {
   constructor(
     private authService: AuthService,
     private snackService: MensagemSnackService
-  ) {
-    merge(
-      this.emailFormControl.statusChanges,
-      this.emailFormControl.valueChanges
-    )
-    .pipe(takeUntilDestroyed())
-    .subscribe(() => this.updateErrorMessage());
-  }
+  ) { }
 
   updateErrorMessage() {
     if (this.emailFormControl.hasError('required')) {
@@ -61,22 +54,24 @@ export class CadastroComponent {
     if (this.passwordFormControl.hasError('required')) {
       this.passwordErrorMessage.set('Digite sua senha.');
     } else {
-      this.passwordErrorMessage.set('');
+    this.passwordErrorMessage.set('');
     }
   }
 
   onSubmit() {
-    // TODO: fix trocar para cadastro
-  //   this.authService.login(
-  //     this.emailFormControl.value, this.passwordFormControl.value).subscribe(
-  //       (login) => {
-  //         this.snackService.sucesso('Login realizado com sucesso');
-  //         localStorage.setItem('accessToken', login.accessToken);
-  //         localStorage.setItem('userId', String(login.user.id));
-  //       },
-  //       (error) => {
-  //         this.snackService.erro('Erro ao realizar login');
-  //       }
-  //   );
+    this.authService.register(
+      this.nomeFormControl.value,
+      this.emailFormControl.value,
+      this.passwordFormControl.value,
+      ).subscribe(
+        (register) => {
+          this.snackService.sucesso('Cadastro realizado com sucesso');
+          localStorage.setItem('accessToken', register.accessToken);
+          localStorage.setItem('userId', String(register.user.id));
+        },
+        (error) => {
+          this.snackService.erro('E-mail já cadastrado na plataforma.');
+        }
+    );
   }
 }

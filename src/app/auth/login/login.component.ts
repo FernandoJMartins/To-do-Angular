@@ -30,16 +30,11 @@ export class LoginComponent {
   constructor(
     private authService: AuthService,
     private snackService: MensagemSnackService
-  ) {
-    merge(
-      this.emailFormControl.statusChanges,
-      this.emailFormControl.valueChanges
-    )
-    .pipe(takeUntilDestroyed())
-    .subscribe(() => this.updateErrorMessage());
-  }
+  ) { }
 
   updateErrorMessage() {
+    console.log(this.emailFormControl.hasError('email'))
+
     if (this.emailFormControl.hasError('required')) {
       this.emailErrorMessage.set('Você precisa digitar um email.');
     } else if (this.emailFormControl.hasError('email')) {
