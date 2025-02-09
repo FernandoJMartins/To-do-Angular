@@ -1,0 +1,38 @@
+<mat-card class="{{cardColor}} shadow-md rounded-lg p-4 relative overflow-y-auto !min-h-full">
+  <div class="flex justify-end items-center space-x-2.5">
+    <mat-label class="text-lg font-medium text-black">Feito</mat-label>
+    <mat-slide-toggle (toggleChange)="toggleSwitch()" [checked]="task.status === 'feito'"/>
+  </div>
+  <div>
+    <h3 class="todo-title text-lg font-semibold text-gray-700">
+      {{task.titulo}}
+    </h3>
+    <div class="mt-4">
+      <p class="text-justify text-lg text-black-500">
+        <span class="todo-text">
+          {{task.descricao}}
+        </span>
+      </p>
+      @if (task.dueDate) {
+        <p class="mt-4 text-sm text-gray-500">
+          <span class="font-bold">Data do Afazer: </span>
+          <span class="todo-date">
+            {{task.dueDate | date}}
+          </span>
+        </p>
+      }
+      <p class="mt-4 text-sm text-gray-500">
+        <span class="font-bold">Criado em: </span>
+        <span class="todo-created-at">{{task.dataCriacao | date}}</span>
+      </p>
+    </div>
+    <div class="absolute bottom-4 right-4 inline-flex">
+      <span class="mx-0.5">
+        <button mat-button>Excluir</button>
+      </span>
+      <span class="mx-0.5">
+        <button (click)="openNewTaskDialog()" mat-button>Editar</button>
+      </span>
+    </div>
+  </div>
+</mat-card>

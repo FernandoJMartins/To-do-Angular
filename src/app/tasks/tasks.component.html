@@ -1,10 +1,12 @@
 <div>
   <button mat-fab extended
   (click)="openNewTaskDialog()"
-  class="!bg-violet-500 !text-white !rounded-lg !h-fit !py-2"
+  class="!bg-violet-500 !text-white !rounded-lg !h-fit !py-3 !fixed bottom-8 !left-8 !z-[99] md:top-8"
   >
     <mat-icon>post_add</mat-icon>
     Novo Afazer
   </button>
 </div>
-<app-listagem-task></app-listagem-task>
+<app-listagem-task
+  [tasks]="tasks"
+/>

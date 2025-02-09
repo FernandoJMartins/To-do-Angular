@@ -1,21 +1,15 @@
-<h1>Lista de Tarefas</h1>
+<app-logo/>
 
-@for (task of tasks; track task.id) {
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>ID: {{task.id}}</mat-card-title>
-      <mat-card-subtitle>
-        Título: {{task.titulo}} -- Prioridade: {{task.prioridade}} -- Status: {{task.status}}
-      </mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <p>{{task.descricao}}</p>
-      <p><strong>Data de Criação:</strong> {{task.dataCriacao}}</p>
-      <p><strong>Última Alteração:</strong> {{task.dataAlteracao}}</p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button (click)="editar(task)">Editar</button>
-<!--      <button mat-button (click)="excluir(task)">Excluir</button>-->
-    </mat-card-actions>
-  </mat-card>
-}
+<div class="py-10 grid grid-cols-1 gap-4 w-fit mx-auto md:grid-cols-2 xl:grid-cols-2">
+
+  @for (task of tasks; track task.id) {
+    <app-card-task [task]="task"/>
+  }
+  @if (tasks.length === 0) {
+    <div class="flex justify-center w-full">
+      <h2 class="text-center text-3xl font-medium tracking-tight text-violet-600 mt-4">
+        Não há tarefas cadastradas.
+      </h2>
+    </div>
+  }
+</div>

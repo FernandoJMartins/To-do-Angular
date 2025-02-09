@@ -1,8 +1,9 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TaskPriority } from '../../shared/types/TaskPriority';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Inject } from '@angular/core';
+import { Task } from '../../shared/model/Task';
 
 
 @Component({
@@ -12,9 +13,11 @@ import { Inject } from '@angular/core';
   templateUrl: './form-task.component.html',
   styleUrl: './form-task.component.css'
 })
-export class FormTaskComponent {
+export class FormTaskComponent implements OnInit {
 
   @Input() formTitle!: string;
+  @Input() task!: Task;
+
   @Output() submit = new EventEmitter();
 
   form: FormGroup = new FormGroup({});
@@ -38,8 +41,20 @@ export class FormTaskComponent {
       title: ['', Validators.required],
       text: ['', Validators.required],
       priority: ['', Validators.required],
-      dueDate: ['', Validators.required]
+      dueDate: ['']
     });
+  }
+
+  ngOnInit(): void {
+    this.task = this.data.task;
+    if (this.task) {
+      this.form.patchValue({
+        title: this.task.titulo,
+        text: this.task.descricao,
+        priority: this.task.prioridade,
+        dueDate: this.task.dueDate
+      });
+    }
   }
 
   onCancel() {

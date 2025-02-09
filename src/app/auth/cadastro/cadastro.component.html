@@ -13,6 +13,7 @@
                 <mat-label>Seu Nome</mat-label>
                 <input
                   matInput
+                  maxlength="50"
                   placeholder="John Doe"
                   [formControl]="nomeFormControl"
                   (blur)="nomeUpdateErrorMessage()"

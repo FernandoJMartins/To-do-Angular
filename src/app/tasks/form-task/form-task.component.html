@@ -1,18 +1,17 @@
-<h2 class="mt-2 flex justify-center font-satisfy text-violet-800 text-3xl">{{formTitle}}</h2>
+<h2 class="p-8 mt-2 flex justify-center font-satisfy text-violet-800 text-5xl">{{formTitle}}</h2>
 <mat-dialog-content>
   <div class="mt-10 w-full sm:mx-auto sm:w-full sm:max-w-sm">
-    <mat-card appearance="outlined" class="!bg-violet-50 p-4">
-      <form [formGroup]="form" class="space-y-6">
+      <form [formGroup]="form" class="space-y-6 p-3">
 
         <mat-form-field class="w-full mb-3">
           <mat-label>Título</mat-label>
-          <input matInput formControlName="title" />
+          <input maxlength="50" matInput formControlName="title" />
           <mat-error *ngIf="form.get('title')?.invalid">Título é obrigatório</mat-error>
         </mat-form-field>
 
         <mat-form-field class="w-full mb-3">
           <mat-label>Texto</mat-label>
-          <textarea matInput formControlName="text" placeholder="Insira uma descrição para o seu afazer"></textarea>
+            <textarea maxlength="300" matInput formControlName="text" placeholder="Insira uma descrição para o seu afazer" rows="5"></textarea>
           <mat-error *ngIf="form.get('text')?.invalid">Insira uma descrição para o seu afazer</mat-error>
         </mat-form-field>
 
@@ -29,14 +28,13 @@
         </mat-form-field>
 
         <mat-form-field class="w-full">
-          <mat-label>Choose a date</mat-label>
+          <mat-label>Defina uma data para o afazer</mat-label>
           <input formControlName="dueDate" matInput [matDatepicker]="picker">
           <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
           <mat-error *ngIf="form.get('dueDate')?.invalid">Insira uma data para o seu afazer</mat-error>
         </mat-form-field>
       </form>
-    </mat-card>
   </div>
 </mat-dialog-content>
 

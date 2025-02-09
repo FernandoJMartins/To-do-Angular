@@ -30,125 +30,145 @@
       "email": "doug@fake.com",
       "password": "$2a$10$fSkv5b8voCGPMeWYvQeRR.tAqVUKhV2lcBd.Tv6tFe/juwcsGOUPi",
       "id": 1
+    },
+    {
+      "email": "fake@fake.com",
+      "password": "$2a$10$CFnI8.qQVHYaDG.wllIshOY6aEJy.LnGOsUbfdpg8f.DvPk10dTXO",
+      "id": 2
+    },
+    {
+      "email": "doug@123.com",
+      "password": "$2a$10$RrbLRzLnUnn/c.s.1JUqve4fAZ5xl8Rshb29CwFasxxaANtEMf.9C",
+      "name": "Douglas",
+      "id": 3
+    },
+    {
+      "email": "doug2@fake.com",
+      "password": "$2a$10$.ceqMkpqg1nOV/ggBG/NUekNCZg9mLEm4se/y0APwKj0.iZTStENq",
+      "name": "doug 2",
+      "id": 4
     }
   ],
   "tasks": [
     {
-      "id": "1",
+      "id": 1,
       "titulo": "Revisar código",
       "descricao": "Revisar a implementação do novo módulo.",
-      "prioridade": "alta",
-      "status": "não feito",
-      "donoId": "1",
+      "prioridade": "media",
+      "status": "feito",
+      "donoId": 1,
+      "dueDate": "2025-02-20T10:00:00Z",
       "dataCriacao": "2025-02-08T10:00:00Z",
-      "dataAlteracao": "2025-02-08T10:00:00Z",
-      "dataExclusao": null
+      "dataAlteracao": "2025-02-09T23:09:19.348Z"
     },
     {
-      "id": "2",
+      "id": 2,
       "titulo": "Corrigir bugs",
       "descricao": "Resolver os bugs relatados no sistema.",
-      "prioridade": "média",
-      "status": "não feito",
-      "donoId": "1",
+      "prioridade": "media",
+      "status": "pendente",
+      "donoId": 2,
       "dataCriacao": "2025-02-08T10:00:00Z",
       "dataAlteracao": "2025-02-08T10:00:00Z",
       "dataExclusao": null
     },
     {
-      "id": "3",
+      "id": 3,
       "titulo": "Atualizar documentação",
       "descricao": "Incluir novas funcionalidades na documentação.",
       "prioridade": "normal",
       "status": "feito",
-      "donoId": "1",
+      "donoId": 3,
       "dataCriacao": "2025-02-08T10:00:00Z",
       "dataAlteracao": "2025-02-08T10:00:00Z",
       "dataExclusao": null
     },
     {
-      "id": "4",
+      "id": 4,
       "titulo": "Implementar testes automatizados",
       "descricao": "Criar testes unitários para o backend.",
       "prioridade": "alta",
-      "status": "não feito",
-      "donoId": "1",
+      "status": "pendente",
+      "donoId": 2,
       "dataCriacao": "2025-02-08T10:00:00Z",
       "dataAlteracao": "2025-02-08T10:00:00Z",
       "dataExclusao": null
     },
     {
-      "id": "5",
+      "id": 5,
       "titulo": "Refatorar código",
       "descricao": "Melhorar a estrutura do código para melhor manutenção.",
-      "prioridade": "média",
+      "prioridade": "media",
       "status": "feito",
-      "donoId": "1",
+      "donoId": 2,
       "dataCriacao": "2025-02-08T10:00:00Z",
       "dataAlteracao": "2025-02-08T10:00:00Z",
       "dataExclusao": null
     },
     {
-      "id": "6",
+      "id": 6,
       "titulo": "Planejar nova funcionalidade",
       "descricao": "Criar um documento com as especificações da nova feature.",
       "prioridade": "baixa",
-      "status": "não feito",
-      "donoId": "1",
+      "status": "feito",
+      "donoId": 1,
       "dataCriacao": "2025-02-08T10:00:00Z",
       "dataAlteracao": "2025-02-08T10:00:00Z",
       "dataExclusao": null
     },
     {
-      "id": "7",
+      "id": 7,
       "titulo": "Deploy da aplicação",
       "descricao": "Subir a versão mais recente para produção.",
-      "prioridade": "alta",
-      "status": "não feito",
-      "donoId": "1",
+      "prioridade": "normal",
+      "status": "feito",
+      "donoId": 1,
       "dataCriacao": "2025-02-08T10:00:00Z",
-      "dataAlteracao": "2025-02-08T10:00:00Z",
-      "dataExclusao": null
+      "dataAlteracao": "2025-02-09T23:10:56.207Z"
     },
     {
-      "id": "8",
+      "id": 8,
       "titulo": "Monitorar performance",
       "descricao": "Analisar métricas de desempenho da aplicação.",
-      "prioridade": "média",
+      "prioridade": "media",
       "status": "feito",
-      "donoId": "1",
-      "dataCriacao": "2025-02-08T10:00:00Z",
+      "donoId": 1,
+      "dataCriacao": "2025-01-08T10:00:00Z",
       "dataAlteracao": "2025-02-08T10:00:00Z",
       "dataExclusao": null
     },
     {
-      "id": "9",
+      "id": 9,
       "titulo": "Realizar reunião de equipe",
       "descricao": "Discutir progresso e próximos passos.",
       "prioridade": "normal",
-      "status": "não feito",
-      "donoId": "1",
-      "dataCriacao": "2025-02-08T10:00:00Z",
+      "status": "pendente",
+      "donoId": 1,
+      "dataCriacao": "2025-03-08T10:00:00Z",
       "dataAlteracao": "2025-02-08T10:00:00Z",
       "dataExclusao": null
     },
     {
-      "id": "10",
+      "id": 10,
       "titulo": "Criar relatório de progresso",
       "descricao": "Documentar os avanços e desafios encontrados.",
       "prioridade": "baixa",
       "status": "feito",
-      "donoId": "1",
-      "dataCriacao": "2025-02-08T10:00:00Z",
+      "donoId": 1,
+      "dataCriacao": "2025-04-08T10:00:00Z",
       "dataAlteracao": "2025-02-08T10:00:00Z",
       "dataExclusao": null
     },
     {
-      "id": "1fd3",
-      "titulo": "asd",
-      "descricao": "123",
-      "prioridade": "33",
-      "dataCriacao": "33"
+      "titulo": "teste",
+      "descricao": "teste",
+      "prioridade": "normal",
+      "status": "pendente",
+      "donoId": 1,
+      "dueDate": "2025-02-28T03:00:00.000Z",
+      "dataCriacao": "2025-02-09T22:37:58.374Z",
+      "dataAlteracao": "2025-02-09T22:37:58.374Z",
+      "id": 11
     }
   ]
 }

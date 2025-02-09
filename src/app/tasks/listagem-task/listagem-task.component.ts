@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {Usuario} from '../../shared/model/Usuario';
-import {TaskService} from '../../shared/services/task.service';
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output, signal } from '@angular/core';
 import {Task} from '../../shared/model/Task';
+import { TaskService } from '../../shared/services/task.service';
 
 @Component({
   selector: 'app-listagem-task',
@@ -10,25 +9,11 @@ import {Task} from '../../shared/model/Task';
   styleUrl: './listagem-task.component.css'
 })
 export class ListagemTaskComponent implements OnInit{
-  tasks: Array<Task> = [];
+  @Input() tasks: Task[] = [];
 
+  constructor() {
+  }
 
-constructor(private taskService: TaskService) {
-}
-
-ngOnInit(): void {
-  this.taskService.listar().subscribe(
-    tasks => this.tasks = tasks
-  )
-}
-
-public editar(usuario: Usuario): void {
-  console.log('user alterado');
-}
-
-// public excluir(usuario :Usuario): void {
-//   const indexToRemove = this.listaUsuarios.indexOf(usuario);
-//   if (indexToRemove >= 0){
-//   this.listaUsuarios.splice(indexToRemove, 1);
-// }
+  ngOnInit(): void {
+  }
 }

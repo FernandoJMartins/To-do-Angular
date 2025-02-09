@@ -14,6 +14,8 @@ import { MensagemSnackService } from '../shared/services/snack.service';
 })
 export class TasksComponent implements OnInit {
 
+  tasks: Array<Task> = [];
+
   userId!: number;
   dialogRef!: MatDialogRef<FormTaskComponent>;
 
@@ -26,6 +28,15 @@ export class TasksComponent implements OnInit {
 
   ngOnInit(): void {
     this.userId = getCurrentUserData().user.id;
+    this.getTasks();
+
+  }
+
+  getTasks(): void {
+    this.taskService.listar(this.userId).subscribe(
+      (tasks) => {
+        this.tasks = tasks;
+    })
   }
 
   openNewTaskDialog(): void {
@@ -35,8 +46,6 @@ export class TasksComponent implements OnInit {
     });
 
     dialogRef.componentInstance.submit.subscribe((formData: any) => {
-      console.log('Form submitted with data:', formData);
-
       const data: Task = {
         titulo: formData.title,
         descricao: formData.text,
@@ -51,6 +60,7 @@ export class TasksComponent implements OnInit {
       this.taskService.inserir(data).subscribe(
         (task) => {
           this.snackService.sucesso('Afazer criado!');
+          this.getTasks();
           dialogRef.close();
       },
       (error) => {
@@ -60,13 +70,9 @@ export class TasksComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
     });
-
   }
 
   onCancel() {
-    console.log("opa")
     this.dialogRef.close();
   }
-
-
 }
