@@ -13,14 +13,14 @@
                 <mat-label>Seu Nome</mat-label>
                 <input
                   matInput
-                  placeholder="pat@example.com"
-                  [formControl]="emailFormControl"
-                  (blur)="updateErrorMessage()"
+                  placeholder="John Doe"
+                  [formControl]="nomeFormControl"
+                  (blur)="nomeUpdateErrorMessage()"
                   required
                 />
-                @if (emailFormControl.hasError('required')) {
+                @if (nomeFormControl.invalid) {
                   <mat-error>
-                    {{ emailErrorMessage() }}
+                    {{ nomeErrorMessage() }}
                   </mat-error>
                 }
               </mat-form-field>
@@ -35,10 +35,10 @@
                   matInput
                   placeholder="pat@example.com"
                   [formControl]="emailFormControl"
-                  (blur)="updateErrorMessage()"
+                  (blur)="emailUpdateErrorMessage()"
                   required
                 />
-                @if (emailFormControl.hasError('required')) {
+                @if (emailFormControl.invalid) {
                   <mat-error>
                     {{ emailErrorMessage() }}
                   </mat-error>
@@ -58,10 +58,10 @@
                   matInput
                   [formControl]="passwordFormControl"
                   type="password"
-                  (blur)="onBlur()"
+                  (blur)="passwordUpdateErrorMessage()"
                   required
                   />
-                  @if (passwordFormControl.hasError('required')) {
+                  @if (passwordFormControl.invalid) {
                     <mat-error>
                       {{ passwordErrorMessage() }}
                     </mat-error>
@@ -75,7 +75,6 @@
             <button
               type="submit"
               [disabled]="registerForm.invalid"
-              (click)="onSubmit()"
               mat-flat-button
               class="w-full !rounded-md !text-lg">Cadastrar</button>
           </div>

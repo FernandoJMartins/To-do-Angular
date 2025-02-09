@@ -1,9 +1,5 @@
-import { Component, inject, signal } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Component, signal } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { merge } from 'rxjs';
-import { MaterialModule } from '../../shared/modules/material.module';
-import { CommonModule } from '@angular/common';
 import { AuthService } from '../../shared/services/auth.service';
 import { MensagemSnackService } from '../../shared/services/snack.service';
 import { Router, RouterLink } from '@angular/router';
@@ -34,8 +30,6 @@ export class LoginComponent {
   ) { }
 
   updateErrorMessage() {
-    console.log(this.emailFormControl.hasError('email'))
-
     if (this.emailFormControl.hasError('required')) {
       this.emailErrorMessage.set('Você precisa digitar um email.');
     } else if (this.emailFormControl.hasError('email')) {
