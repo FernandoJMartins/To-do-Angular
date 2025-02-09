@@ -6,7 +6,7 @@ import { MaterialModule } from '../../shared/modules/material.module';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../shared/services/auth.service';
 import { MensagemSnackService } from '../../shared/services/snack.service';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -29,7 +29,8 @@ export class LoginComponent {
 
   constructor(
     private authService: AuthService,
-    private snackService: MensagemSnackService
+    private snackService: MensagemSnackService,
+    private router: Router,
   ) { }
 
   updateErrorMessage() {
@@ -67,6 +68,7 @@ export class LoginComponent {
           this.snackService.sucesso('Login realizado com sucesso');
           localStorage.setItem('accessToken', login.accessToken);
           localStorage.setItem('userId', String(login.user.id));
+          this.router.navigate(['/tasks']);
         },
         (error) => {
           this.snackService.erro('Erro ao realizar login');
