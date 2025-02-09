@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { MaterialModule } from '../shared/modules/material.module';
 import { RouterLink } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LogoModule } from "../shared/components/logo/logo.module";
 
 
 
@@ -20,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MaterialModule,
     ReactiveFormsModule,
     RouterLink,
-  ]
+    LogoModule,
+]
 })
 export class AuthModule { }
