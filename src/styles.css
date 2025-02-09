@@ -1,3 +1,9 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Satisfy&display=swap');
+
+
+/* Tailwind */
 @import "tailwindcss";
 
 /* You can add global styles to this file, and also import other style files */
@@ -5,6 +11,16 @@
 html, body { height: 100%; }
 body {
    margin: 0;
-   font-family: Roboto, "Helvetica Neue", sans-serif;
-   background: #9090d7;
+   font-family: 'Montserrat', cursive, Roboto, "Helvetica Neue", sans-serif;
+   background: var(--color-violet-200);
 }
+
+.font-satisfy {
+   font-family: 'Satisfy', cursive;
+}
+
+.font-montserrat {
+  font-family: 'Montserrat', cursive;
+}
+
+
