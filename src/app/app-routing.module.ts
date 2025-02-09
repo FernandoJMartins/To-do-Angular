@@ -3,20 +3,24 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { CadastroComponent } from './auth/cadastro/cadastro.component';
 import {TasksComponent} from './tasks/tasks.component';
-import { AuthGuard } from './auth.guard';
+import { AuthGuard } from './shared/guards/auth.guard';
+import { NoAuthGuard } from './shared/guards/no-auth.guard';
 
 const routes: Routes = [
   {
     path: 'sign-in',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [NoAuthGuard],
   },
   {
     path: 'sign-up',
-    component: CadastroComponent
+    component: CadastroComponent,
+    canActivate: [NoAuthGuard],
   },
   {
     path: 'tasks',
-    component: TasksComponent
+    component: TasksComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: '',
