@@ -31,5 +31,124 @@
       "password": "$2a$10$fSkv5b8voCGPMeWYvQeRR.tAqVUKhV2lcBd.Tv6tFe/juwcsGOUPi",
       "id": 1
     }
+  ],
+  "tasks": [
+    {
+      "id": "1",
+      "titulo": "Revisar código",
+      "descricao": "Revisar a implementação do novo módulo.",
+      "prioridade": "alta",
+      "status": "não feito",
+      "donoId": "1",
+      "dataCriacao": "2025-02-08T10:00:00Z",
+      "dataAlteracao": "2025-02-08T10:00:00Z",
+      "dataExclusao": null
+    },
+    {
+      "id": "2",
+      "titulo": "Corrigir bugs",
+      "descricao": "Resolver os bugs relatados no sistema.",
+      "prioridade": "média",
+      "status": "não feito",
+      "donoId": "1",
+      "dataCriacao": "2025-02-08T10:00:00Z",
+      "dataAlteracao": "2025-02-08T10:00:00Z",
+      "dataExclusao": null
+    },
+    {
+      "id": "3",
+      "titulo": "Atualizar documentação",
+      "descricao": "Incluir novas funcionalidades na documentação.",
+      "prioridade": "normal",
+      "status": "feito",
+      "donoId": "1",
+      "dataCriacao": "2025-02-08T10:00:00Z",
+      "dataAlteracao": "2025-02-08T10:00:00Z",
+      "dataExclusao": null
+    },
+    {
+      "id": "4",
+      "titulo": "Implementar testes automatizados",
+      "descricao": "Criar testes unitários para o backend.",
+      "prioridade": "alta",
+      "status": "não feito",
+      "donoId": "1",
+      "dataCriacao": "2025-02-08T10:00:00Z",
+      "dataAlteracao": "2025-02-08T10:00:00Z",
+      "dataExclusao": null
+    },
+    {
+      "id": "5",
+      "titulo": "Refatorar código",
+      "descricao": "Melhorar a estrutura do código para melhor manutenção.",
+      "prioridade": "média",
+      "status": "feito",
+      "donoId": "1",
+      "dataCriacao": "2025-02-08T10:00:00Z",
+      "dataAlteracao": "2025-02-08T10:00:00Z",
+      "dataExclusao": null
+    },
+    {
+      "id": "6",
+      "titulo": "Planejar nova funcionalidade",
+      "descricao": "Criar um documento com as especificações da nova feature.",
+      "prioridade": "baixa",
+      "status": "não feito",
+      "donoId": "1",
+      "dataCriacao": "2025-02-08T10:00:00Z",
+      "dataAlteracao": "2025-02-08T10:00:00Z",
+      "dataExclusao": null
+    },
+    {
+      "id": "7",
+      "titulo": "Deploy da aplicação",
+      "descricao": "Subir a versão mais recente para produção.",
+      "prioridade": "alta",
+      "status": "não feito",
+      "donoId": "1",
+      "dataCriacao": "2025-02-08T10:00:00Z",
+      "dataAlteracao": "2025-02-08T10:00:00Z",
+      "dataExclusao": null
+    },
+    {
+      "id": "8",
+      "titulo": "Monitorar performance",
+      "descricao": "Analisar métricas de desempenho da aplicação.",
+      "prioridade": "média",
+      "status": "feito",
+      "donoId": "1",
+      "dataCriacao": "2025-02-08T10:00:00Z",
+      "dataAlteracao": "2025-02-08T10:00:00Z",
+      "dataExclusao": null
+    },
+    {
+      "id": "9",
+      "titulo": "Realizar reunião de equipe",
+      "descricao": "Discutir progresso e próximos passos.",
+      "prioridade": "normal",
+      "status": "não feito",
+      "donoId": "1",
+      "dataCriacao": "2025-02-08T10:00:00Z",
+      "dataAlteracao": "2025-02-08T10:00:00Z",
+      "dataExclusao": null
+    },
+    {
+      "id": "10",
+      "titulo": "Criar relatório de progresso",
+      "descricao": "Documentar os avanços e desafios encontrados.",
+      "prioridade": "baixa",
+      "status": "feito",
+      "donoId": "1",
+      "dataCriacao": "2025-02-08T10:00:00Z",
+      "dataAlteracao": "2025-02-08T10:00:00Z",
+      "dataExclusao": null
+    },
+    {
+      "id": "1fd3",
+      "titulo": "asd",
+      "descricao": "123",
+      "prioridade": "33",
+      "dataCriacao": "33"
+    }
   ]
 }
