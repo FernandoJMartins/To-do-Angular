@@ -21,4 +21,13 @@ export class AuthService {
     }
     return this.httpClient.post<Login>(`${this.LOGIN_URL}`, data);
   }
+
+  register(name: string, email: string, password: string): Observable<Login> {
+    const data = {
+      name: name,
+      email: email,
+      password: password
+    }
+    return this.httpClient.post<Login>(`${this.REGISTER_URL}`, data);
+  }
 }
