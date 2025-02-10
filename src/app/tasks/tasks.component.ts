@@ -92,6 +92,6 @@ export class TasksComponent implements OnInit {
 
   logout(): void {
     removeUserData();
-    this.router.navigate(['/']);
+    this.router.navigate(['/sign-in']);
   }
 }
