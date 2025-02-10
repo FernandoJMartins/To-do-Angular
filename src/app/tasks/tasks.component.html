@@ -7,6 +7,16 @@
     Novo Afazer
   </button>
 </div>
+<div>
+  <button mat-fab extended
+  (click)="logout()"
+  class="!bg-violet-500 !text-white !rounded-lg !h-fit !py-3 !fixed bottom-8 !right-8 !z-[99] md:top-8"
+  >
+    <mat-icon>logout</mat-icon>
+    Sair
+  </button>
+</div>
 <app-listagem-task
   [tasks]="tasks"
+  (delete)="onDelete($event)"
 />

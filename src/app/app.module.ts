@@ -16,6 +16,7 @@ import { TaskService } from './shared/services/task.service';
 import { TasksModule } from './tasks/tasks.module';
 import { LogoModule } from './shared/components/logo/logo.module';
 import { provideNativeDateAdapter } from '@angular/material/core';
+import { DialogModule } from './shared/components/dialog/dialog.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,6 +33,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
     TasksModule,
     LogoModule,
     FormsModule,
+    DialogModule,
   ],
   providers: [
     provideHttpClient(),

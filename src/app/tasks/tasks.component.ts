@@ -1,10 +1,11 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
-import { getCurrentUserData } from '../utils/localStorage';
+import { Component, OnInit } from '@angular/core';
+import { getCurrentUserData, removeUserData } from '../utils/localStorage';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { FormTaskComponent } from './form-task/form-task.component';
 import { TaskService } from '../shared/services/task.service';
 import { Task } from '../shared/model/Task';
 import { MensagemSnackService } from '../shared/services/snack.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tasks',
@@ -23,7 +24,8 @@ export class TasksComponent implements OnInit {
   constructor(
     private dialog: MatDialog,
     private taskService: TaskService,
-    private snackService: MensagemSnackService
+    private snackService: MensagemSnackService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -55,6 +57,7 @@ export class TasksComponent implements OnInit {
         dueDate: formData.dueDate,
         dataCriacao: new Date(),
         dataAlteracao: new Date(),
+        removido: false,
       }
 
       this.taskService.inserir(data).subscribe(
@@ -74,5 +77,21 @@ export class TasksComponent implements OnInit {
 
   onCancel() {
     this.dialogRef.close();
+  }
+
+  onDelete(task: Task): void {
+    this.taskService.remover(task).subscribe(
+      () => {
+        this.snackService.sucesso('Afazer removido!');
+      },
+      (error) => {
+        this.snackService.erro('Erro ao tentar remover afazer.');
+      }
+    )
+  }
+
+  logout(): void {
+    removeUserData();
+    this.router.navigate(['/']);
   }
 }

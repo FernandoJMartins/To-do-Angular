@@ -1,6 +1,5 @@
-import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output, signal } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {Task} from '../../shared/model/Task';
-import { TaskService } from '../../shared/services/task.service';
 
 @Component({
   selector: 'app-listagem-task',
@@ -8,12 +7,17 @@ import { TaskService } from '../../shared/services/task.service';
   templateUrl: './listagem-task.component.html',
   styleUrl: './listagem-task.component.css'
 })
-export class ListagemTaskComponent implements OnInit{
+export class ListagemTaskComponent{
   @Input() tasks: Task[] = [];
+  @Output() delete = new EventEmitter<Task>();
 
-  constructor() {
-  }
+  constructor() { }
 
-  ngOnInit(): void {
+  onDelete(task: Task): void {
+    const index = this.tasks.findIndex(t => t.id === task.id);
+    if (index !== -1) {
+      this.tasks.splice(index, 1);
+    }
+    this.delete.emit(task);
   }
 }

@@ -15,3 +15,8 @@ export function getCurrentUserData(): Login {
   }
   return login;
 }
+
+export function removeUserData(): void {
+  localStorage.removeItem("accessToken");
+  localStorage.removeItem("userId");
+}

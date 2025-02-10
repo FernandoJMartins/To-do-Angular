@@ -4,6 +4,7 @@ import { TaskService } from '../../shared/services/task.service';
 import { MensagemSnackService } from '../../shared/services/snack.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { FormTaskComponent } from '../form-task/form-task.component';
+import { DialogComponent } from '../../shared/components/dialog/dialog.component';
 
 @Component({
   selector: 'app-card-task',
@@ -15,6 +16,9 @@ import { FormTaskComponent } from '../form-task/form-task.component';
 export class CardTaskComponent implements OnInit {
 
   @Input() task!: Task;
+
+  @Output() dialogActionConfirm = new EventEmitter();
+  @Output() deleteTask = new EventEmitter<Task>();
 
   cardColor: string = '!bg-white'
 
@@ -33,7 +37,7 @@ export class CardTaskComponent implements OnInit {
   setCardColor(): void {
     switch (this.task.prioridade) {
       case 'alta':
-        this.cardColor = '!bg-red-100';
+        this.cardColor = '!bg-red-200';
         break;
 
       case 'media':
@@ -62,13 +66,12 @@ export class CardTaskComponent implements OnInit {
     },
       (error) => {
         this.snackService.erro("Erro ao atualizar status!");
-        this.toggleSwitch()
       }
     )
     this.setCardColor();
   }
 
-  openNewTaskDialog(): void {
+  openEditTaskDialog(): void {
     const dialogRef = this.dialog.open(FormTaskComponent, {
       width: '30rem',
       data: { formTitle: 'Atualizar Afazer', task: this.task },
@@ -85,13 +88,28 @@ export class CardTaskComponent implements OnInit {
         dueDate: formData.dueDate,
         dataCriacao: this.task.dataCriacao,
         dataAlteracao: new Date(),
+        removido: this.task.removido,
       }
       this.task = { ...data };
       this.atualizarTask();
       dialogRef.close();
     });
+  }
 
+  openDeleteTaskDialog(): void {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '30rem',
+      data: {
+        dialogTitle: 'Remover Afazer',
+        dialogText: 'Deseja realmente remover este afazer?'
+      },
+    });
 
-
+    dialogRef.componentInstance.dialogActionConfirm.subscribe(
+      () => {
+        this.deleteTask.emit(this.task);
+        dialogRef.close();
+      }
+    );
   }
 }

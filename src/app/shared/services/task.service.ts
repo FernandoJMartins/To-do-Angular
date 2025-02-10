@@ -19,7 +19,13 @@ export class TaskService {
     return this.httpClient.get<Task[]>(
       this.URL,
       {
-        params: { donoId: userId, _sort: '-dataCriacao' } });
+        params: {
+          donoId: userId,
+          removido_ne: true,
+          _sort: '-dataCriacao'
+         }
+        }
+      );
   }
 
   inserir(task: Task): Observable<Task> {
@@ -27,6 +33,12 @@ export class TaskService {
   }
 
   atualizar(task: Task): Observable<Task> {
+    return this.httpClient.put<Task>(`${this.URL}/${task.id}`, task);
+  }
+
+  remover(task: Task): Observable<Task> {
+    task.dataAlteracao = new Date();
+    task.removido = true;
     return this.httpClient.put<Task>(`${this.URL}/${task.id}`, task);
   }
 

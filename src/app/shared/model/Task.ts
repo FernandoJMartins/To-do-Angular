@@ -8,6 +8,6 @@ export class Task {
   dataCriacao?: Date;
   dueDate?: Date;
   dataAlteracao?: Date;
-  dataExclusao?: Date; // Exclusão lógica
+  removido?: boolean; // Exclusão lógica
 
 }

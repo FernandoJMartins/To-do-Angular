@@ -1,13 +1,13 @@
 <app-logo/>
 
-<div class="py-10 grid grid-cols-1 gap-4 w-fit mx-auto md:grid-cols-2 xl:grid-cols-2">
+<div class="py-10 pb-52 grid grid-cols-1 gap-4 w-fit mx-auto md:grid-cols-2 xl:grid-cols-2">
 
   @for (task of tasks; track task.id) {
-    <app-card-task [task]="task"/>
+    <app-card-task [task]="task" (deleteTask)="onDelete($event)"/>
   }
   @if (tasks.length === 0) {
-    <div class="flex justify-center w-full">
-      <h2 class="text-center text-3xl font-medium tracking-tight text-violet-600 mt-4">
+    <div class="mt-20 flex items-center justify-center w-screen">
+      <h2 class="text-center text-3xl font-medium tracking-tight text-violet-800">
         Não há tarefas cadastradas.
       </h2>
     </div>
