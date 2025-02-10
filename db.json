@@ -52,14 +52,15 @@
   "tasks": [
     {
       "id": 1,
-      "titulo": "Revisar código",
+      "titulo": "Revisar código!!",
       "descricao": "Revisar a implementação do novo módulo.",
-      "prioridade": "media",
+      "prioridade": "alta",
       "status": "feito",
       "donoId": 1,
       "dueDate": "2025-02-20T10:00:00Z",
       "dataCriacao": "2025-02-08T10:00:00Z",
-      "dataAlteracao": "2025-02-09T23:09:19.348Z"
+      "dataAlteracao": "2025-02-10T01:54:30.655Z",
+      "removido": false
     },
     {
       "id": 2,
@@ -68,9 +69,10 @@
       "prioridade": "media",
       "status": "pendente",
       "donoId": 2,
+      "dueDate": null,
       "dataCriacao": "2025-02-08T10:00:00Z",
       "dataAlteracao": "2025-02-08T10:00:00Z",
-      "dataExclusao": null
+      "removido": false
     },
     {
       "id": 3,
@@ -79,9 +81,10 @@
       "prioridade": "normal",
       "status": "feito",
       "donoId": 3,
+      "dueDate": null,
       "dataCriacao": "2025-02-08T10:00:00Z",
       "dataAlteracao": "2025-02-08T10:00:00Z",
-      "dataExclusao": null
+      "removido": false
     },
     {
       "id": 4,
@@ -90,9 +93,10 @@
       "prioridade": "alta",
       "status": "pendente",
       "donoId": 2,
+      "dueDate": null,
       "dataCriacao": "2025-02-08T10:00:00Z",
       "dataAlteracao": "2025-02-08T10:00:00Z",
-      "dataExclusao": null
+      "removido": false
     },
     {
       "id": 5,
@@ -101,9 +105,10 @@
       "prioridade": "media",
       "status": "feito",
       "donoId": 2,
+      "dueDate": null,
       "dataCriacao": "2025-02-08T10:00:00Z",
       "dataAlteracao": "2025-02-08T10:00:00Z",
-      "dataExclusao": null
+      "removido": false
     },
     {
       "id": 6,
@@ -112,9 +117,10 @@
       "prioridade": "baixa",
       "status": "feito",
       "donoId": 1,
+      "dueDate": "2025-02-28T03:00:00.000Z",
       "dataCriacao": "2025-02-08T10:00:00Z",
       "dataAlteracao": "2025-02-08T10:00:00Z",
-      "dataExclusao": null
+      "removido": false
     },
     {
       "id": 7,
@@ -123,8 +129,10 @@
       "prioridade": "normal",
       "status": "feito",
       "donoId": 1,
+      "dueDate": "2025-02-28T03:00:00.000Z",
       "dataCriacao": "2025-02-08T10:00:00Z",
-      "dataAlteracao": "2025-02-09T23:10:56.207Z"
+      "dataAlteracao": "2025-02-09T23:10:56.207Z",
+      "removido": false
     },
     {
       "id": 8,
@@ -133,9 +141,10 @@
       "prioridade": "media",
       "status": "feito",
       "donoId": 1,
+      "dueDate": "2025-02-28T03:00:00.000Z",
       "dataCriacao": "2025-01-08T10:00:00Z",
       "dataAlteracao": "2025-02-08T10:00:00Z",
-      "dataExclusao": null
+      "removido": false
     },
     {
       "id": 9,
@@ -144,9 +153,10 @@
       "prioridade": "normal",
       "status": "pendente",
       "donoId": 1,
+      "dueDate": "2025-02-28T03:00:00.000Z",
       "dataCriacao": "2025-03-08T10:00:00Z",
       "dataAlteracao": "2025-02-08T10:00:00Z",
-      "dataExclusao": null
+      "removido": false
     },
     {
       "id": 10,
@@ -155,9 +165,10 @@
       "prioridade": "baixa",
       "status": "feito",
       "donoId": 1,
+      "dueDate": "2025-02-28T03:00:00.000Z",
       "dataCriacao": "2025-04-08T10:00:00Z",
       "dataAlteracao": "2025-02-08T10:00:00Z",
-      "dataExclusao": null
+      "removido": false
     },
     {
       "titulo": "teste",
@@ -165,10 +176,59 @@
       "prioridade": "normal",
       "status": "pendente",
       "donoId": 1,
-      "dueDate": "2025-02-28T03:00:00.000Z",
+      "dueDate": "2025-02-10T00:40:04.254Z",
       "dataCriacao": "2025-02-09T22:37:58.374Z",
       "dataAlteracao": "2025-02-09T22:37:58.374Z",
-      "id": 11
+      "id": 11,
+      "removido": true
+    },
+    {
+      "titulo": "esteste",
+      "descricao": "etswtersts",
+      "prioridade": "normal",
+      "status": "pendente",
+      "donoId": 1,
+      "dueDate": "2025-02-28T03:00:00.000Z",
+      "dataCriacao": "2025-02-10T00:41:23.570Z",
+      "dataAlteracao": "2025-02-10T00:54:07.529Z",
+      "id": 12,
+      "removido": true
+    },
+    {
+      "id": 13,
+      "titulo": "Teste final!",
+      "descricao": "testando tudo",
+      "prioridade": "alta",
+      "status": "feito",
+      "donoId": 1,
+      "dueDate": "2025-02-01T03:00:00.000Z",
+      "dataCriacao": "2025-02-10T00:54:30.381Z",
+      "dataAlteracao": "2025-02-10T00:57:23.419Z",
+      "removido": false
+    },
+    {
+      "titulo": "t sheets containing Lorem Ipsum passages, and more",
+      "descricao": "t sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n\nWhy do we use it?\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The poi",
+      "prioridade": "normal",
+      "status": "pendente",
+      "donoId": 1,
+      "dueDate": "2025-02-19T03:00:00.000Z",
+      "dataCriacao": "2025-02-10T01:25:10.239Z",
+      "dataAlteracao": "2025-02-10T01:25:10.239Z",
+      "removido": false,
+      "id": 14
+    },
+    {
+      "id": 15,
+      "titulo": "teste",
+      "descricao": "teste",
+      "prioridade": "media",
+      "status": "feito",
+      "donoId": 1,
+      "dueDate": "",
+      "dataCriacao": "2025-02-10T01:43:38.222Z",
+      "dataAlteracao": "2025-02-10T01:54:34.979Z",
+      "removido": true
     }
   ]
 }
