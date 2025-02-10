@@ -7,6 +7,7 @@ import { FormTaskComponent } from './form-task/form-task.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CardTaskComponent } from './card-task/card-task.component';
 import { LogoModule } from "../shared/components/logo/logo.module";
+import { PesquisaTaskComponent } from './pesquisa-task/pesquisa-task.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { LogoModule } from "../shared/components/logo/logo.module";
     ListagemTaskComponent,
     TasksComponent,
     CardTaskComponent,
+    PesquisaTaskComponent,
   ],
   imports: [
     CommonModule,
