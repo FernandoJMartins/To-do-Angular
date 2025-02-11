@@ -14,6 +14,7 @@ export class PesquisaTaskComponent {
   input : string = '';
   userId: number;
   @Input() tasks!: Array<Task>;
+  isDropDownVisible : boolean = false;
 
   constructor(private tasksComponent : TasksComponent) {
     this.userId = getCurrentUserData().user.id;
@@ -23,4 +24,7 @@ export class PesquisaTaskComponent {
     this.tasksComponent.getTasks(input);
   }
 
+  changeVisibility() {
+    this.isDropDownVisible = !this.isDropDownVisible;
+  }
 }
