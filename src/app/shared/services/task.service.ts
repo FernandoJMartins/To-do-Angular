@@ -19,10 +19,10 @@ export class TaskService {
     const params: any = {
       donoId: userId,
       removido_ne: true,
-      _sort: '-dataCriacao',
+      _sort: 'dataCriacao',
     };
 
-    // Se houver filtro, aplicar em título ou descrição
+    // Se houver filtro, aplicar ele em qualquer parametro
     if (filtro.trim()) {
       params['q'] = filtro;
     }
