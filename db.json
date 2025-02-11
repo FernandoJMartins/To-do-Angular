@@ -84,7 +84,7 @@
       "titulo": "3",
       "descricao": "3",
       "prioridade": "baixa",
-      "status": "pendente",
+      "status": "feito",
       "donoId": 5,
       "dueDate": "2001-03-01T03:00:00.000Z",
       "dataCriacao": "2025-02-10T17:31:41.594Z",
@@ -120,7 +120,7 @@
       "titulo": "3",
       "descricao": "3",
       "prioridade": "normal",
-      "status": "pendente",
+      "status": "feito",
       "donoId": 5,
       "dueDate": "",
       "dataCriacao": "2025-02-10T17:31:54.630Z",
@@ -151,6 +151,42 @@
       "dataCriacao": "2025-02-10T17:32:05.392Z",
       "dataAlteracao": "2025-02-10T17:37:02.866Z",
       "removido": false
+    },
+    {
+      "titulo": "1",
+      "descricao": "1",
+      "prioridade": "baixa",
+      "status": "feito",
+      "donoId": 6,
+      "dueDate": "2001-01-01T02:00:00.000Z",
+      "dataCriacao": "2025-02-11T02:21:47.390Z",
+      "dataAlteracao": "2025-02-11T02:21:47.390Z",
+      "removido": false,
+      "id": 9
+    },
+    {
+      "titulo": "1",
+      "descricao": "1",
+      "prioridade": "baixa",
+      "status": "pendente",
+      "donoId": 5,
+      "dueDate": "2001-01-01T02:00:00.000Z",
+      "dataCriacao": "2025-02-11T02:33:40.451Z",
+      "dataAlteracao": "2025-02-11T02:33:40.451Z",
+      "removido": false,
+      "id": 10
+    },
+    {
+      "titulo": "mandar video do projeto",
+      "descricao": "para minha mulher",
+      "prioridade": "alta",
+      "status": "feito",
+      "donoId": 5,
+      "dueDate": "2025-02-10T03:00:00.000Z",
+      "dataCriacao": "2025-02-11T02:45:25.822Z",
+      "dataAlteracao": "2025-02-11T02:45:25.822Z",
+      "removido": false,
+      "id": 11
     }
   ]
 }

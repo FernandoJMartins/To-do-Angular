@@ -15,17 +15,19 @@ export class TaskService {
 
   }
 
-  listar(userId: number): Observable<Task[]> {
-    return this.httpClient.get<Task[]>(
-      this.URL,
-      {
-        params: {
-          donoId: userId,
-          removido_ne: true,
-          _sort: '-dataCriacao'
-         }
-        }
-      );
+  listar(userId: number, filtro: string = ''): Observable<Task[]> {
+    const params: any = {
+      donoId: userId,
+      removido_ne: true,
+      _sort: '-dataCriacao',
+    };
+
+    // Se houver filtro, aplicar em título ou descrição
+    if (filtro.trim()) {
+      params['q'] = filtro;
+    }
+
+    return this.httpClient.get<Task[]>(this.URL, { params });
   }
 
   inserir(task: Task): Observable<Task> {

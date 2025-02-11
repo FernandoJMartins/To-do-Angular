@@ -34,8 +34,8 @@ export class TasksComponent implements OnInit {
 
   }
 
-  getTasks(): void {
-    this.taskService.listar(this.userId).subscribe(
+  getTasks(filtro: string = ''): void {
+    this.taskService.listar(this.userId, filtro).subscribe(
       (tasks) => {
         this.tasks = tasks;
     })
