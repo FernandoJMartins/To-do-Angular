@@ -2,10 +2,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import {UsuarioModule} from './usuario/usuario.module';
-import {MatButtonModule} from '@angular/material/button';
-import {provideHttpClient} from '@angular/common/http';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { provideHttpClient } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { AuthService } from './shared/services/auth.service';
@@ -24,8 +22,6 @@ import { DialogModule } from './shared/components/dialog/dialog.module';
   imports: [
     BrowserModule,
     FormsModule,
-    UsuarioModule,
-    MatButtonModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
