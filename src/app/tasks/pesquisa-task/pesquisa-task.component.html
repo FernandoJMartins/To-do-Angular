@@ -1,104 +1,118 @@
-<button (click)="changeVisibility()"
-  class="border-0 !h-fit !py-3 !absolute bottom-8 !z-[99] md:top-0 md:top-8 left-[29%] hover: cursor-pointer py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-violet-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-violet-600 transition-all text-sm">
-  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
-       class="text-violet-600 text-xl iconify iconify--ion" width="1em" height="1em" viewBox="0 0 512 512">
-    <path fill="currentColor"
-          d="M472 168H40a24 24 0 0 1 0-48h432a24 24 0 0 1 0 48m-80 112H120a24 24 0 0 1 0-48h272a24 24 0 0 1 0 48m-96 112h-80a24 24 0 0 1 0-48h80a24 24 0 0 1 0 48"></path>
-  </svg>
-  <span class="hidden lg:block">Filtros</span>
-  <svg class="w-2.5 h-2.5 text-violet-600" width="16" height="16" viewBox="0 0 16 16" fill="none"
-       xmlns="http://www.w3.org/2000/svg">
-    <path d="M2 5L8.16086 10.6869C8.35239 10.8637 8.64761 10.8637 8.83914 10.6869L15 5" stroke="currentColor"
-          stroke-width="2"></path>
-  </svg>
-</button>
-<div *ngIf="isDropDownVisible"  style="margin-left: -79px"
-  class=" w-[20px] !z-[9999] absolute top-16 right-1/4 my-3 mx-[1rem] md:top-16 md:my-4 md:left-1/4 md:mx-[2.3rem] lg:mx-[-4rem] lg:left-1/3 MuiBox-root css-0"
-  tabindex="-1">
-  <div id="search-filter-checkbox" class=" min-w-[15rem] bg-white shadow-md rounded-lg p-2 mt-2"><span
-    class="block text-sm text-left m-2 italic font-semibold text-violet-400">Por Status</span>
-    <div class=" relative flex items-start py-2 px-3 mx-4 rounded-md hover:bg-gray-100">
-      <div class="flex items-center h-5 mt-1"><input id="feito"
-                                                     class="done-checkbox border-gray-200 rounded text-violet-600 focus:ring-violet-500"
-                                                     aria-describedby="done-description" type="checkbox" name="done"
-                                                     [checked]="arrayCheckboxes.includes('feito')"
-                                                     (change)="toggleCheckbox('feito', $event)">
-      </div>
-      <label for="done" class="ml-3.5"><span class="block text-sm font-semibold text-violet-800">Feitos</span><span
-        id="done-description" class="block text-sm text-violet-600">Afazeres finalizados</span></label></div>
-    <div class="relative flex items-start py-2 px-3 mx-4 rounded-md hover:bg-gray-100">
-      <div class="flex items-center h-5 mt-1"><input id="notDone"
-                                                     class="notDone-checkbox border-gray-200 rounded text-violet-600 focus:ring-violet-500"
-                                                     aria-describedby="item-checkbox-description" type="checkbox"
-                                                     name="notDone"
+<div class="flex justify-center space-x-0 top-0 b-8 w-full p-0">
 
-                                                     [checked]="arrayCheckboxes.includes('pendente')"
-                                                     (change)="toggleCheckbox('pendente', $event)"></div>
-      <label for="notDone" class="ml-3.5"><span
-        class="block text-sm font-semibold text-violet-800">Não Feitos</span><span id="notDone-description"
-                                                                                   class="block text-sm text-violet-600">Afazeres pendentes</span></label>
-    </div>
-    <span class="block text-sm text-left mt-4 m-2 italic font-semibold text-violet-400">Por Prioridade</span>
-    <div class="relative flex items-start py-2 px-3 mx-4 rounded-md hover:bg-gray-100">
-      <div class="flex items-center h-5 mt-1"><input id="high"
-                                                     [checked]="arrayCheckboxes.includes('alta')"
-                                                     (change)="toggleCheckbox('alta', $event)"
-                                                     class="high-checkbox border-gray-200 rounded text-violet-600 focus:ring-violet-500"
-                                                     aria-describedby="high-description" type="checkbox" name="high">
+  <button (click)="changeVisibility()"
+    class="border-0 !h-fit !py-3 !z-[99] hover: cursor-pointer px-4 inline-flex justify-center items-center gap-2 rounded-md font-medium bg-white text-violet-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-violet-600 transition-all text-sm">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+         class="text-violet-600 text-xl iconify iconify--ion" width="1em" height="1em" viewBox="0 0 512 512">
+      <path fill="currentColor"
+            d="M472 168H40a24 24 0 0 1 0-48h432a24 24 0 0 1 0 48m-80 112H120a24 24 0 0 1 0-48h272a24 24 0 0 1 0 48m-96 112h-80a24 24 0 0 1 0-48h80a24 24 0 0 1 0 48"></path>
+    </svg>
+    <span class="hidden lg:block">Filtros</span>
+    <svg class="w-2.5 h-2.5 text-violet-600" width="16" height="16" viewBox="0 0 16 16" fill="none"
+         xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 5L8.16086 10.6869C8.35239 10.8637 8.64761 10.8637 8.83914 10.6869L15 5" stroke="currentColor"
+            stroke-width="2"></path>
+    </svg>
+  </button>
+  <div *ngIf="isDropDownVisible" style="margin-left: -79px"
+    class=" w-[20px] !z-[9999] absolute top-16 right-1/4 my-3 mx-[1rem] md:my-4 md:left-1/4 md:mx-[2.3rem] lg:mx-[-4rem] lg:left-1/3 MuiBox-root css-0"
+    tabindex="-1">
+    <div id="search-filter-checkbox" class=" min-w-[15rem] bg-white shadow-md rounded-lg p-2 mt-2"><span
+      class="block text-sm text-left m-2 italic font-semibold text-violet-400">Por Status</span>
+      <div class="relative flex items-start py-2 px-3 mx-4 rounded-md hover:bg-gray-100">
+        <div class="flex items-center h-5 mt-1">
+          <input id="done"
+            class="done-checkbox border-gray-200 rounded text-violet-600 focus:ring-violet-500"
+            aria-describedby="item-checkbox-description" type="checkbox" name="done"
+            [checked]="arrayCheckboxes.includes('feito')"
+            (change)="toggleCheckbox('feito', $event)">
+        </div>
+        <label for="done" class="ml-3.5">
+          <span class="block text-sm font-semibold text-violet-800">
+              Feitos
+          </span>
+          <span id="notDone-description" class="block text-sm text-violet-600">
+              Afazeres finalizados
+          </span>
+        </label>
       </div>
-      <label for="high" class="ml-3.5"><span
-        class="block text-sm font-semibold text-violet-800">Prioridade Alta</span><span id="high-description"
-                                                                                        class="block text-sm text-violet-600">Afazeres de alta prioridade</span></label>
-    </div>
     <div class="relative flex items-start py-2 px-3 mx-4 rounded-md hover:bg-gray-100">
-      <div class="flex items-center h-5 mt-1"><input id="medium"
+      <div class="flex items-center h-5 mt-1">
+        <input id="notDone"
+          class="notDone-checkbox border-gray-200 rounded text-violet-600 focus:ring-violet-500"
+          aria-describedby="item-checkbox-description" type="checkbox" name="notDone"
+          [checked]="arrayCheckboxes.includes('pendente')"
+          (change)="toggleCheckbox('pendente', $event)">
+      </div>
+      <label for="notDone" class="ml-3.5">
+        <span class="block text-sm font-semibold text-violet-800">
+            Não Feitos
+        </span>
+        <span id="notDone-description" class="block text-sm text-violet-600">
+            Afazeres pendentes
+        </span>
+      </label>
+    </div>
+      <span class="block text-sm text-left mt-4 m-2 italic font-semibold text-violet-400">Por Prioridade</span>
+      <div class="relative flex items-start py-2 px-3 mx-4 rounded-md hover:bg-gray-100">
+        <div class="flex items-center h-5 mt-1">
+          <input id="high"
+          [checked]="arrayCheckboxes.includes('alta')"
+          (change)="toggleCheckbox('alta', $event)"
+          class="high-checkbox border-gray-200 rounded text-violet-600 focus:ring-violet-500"
+          aria-describedby="high-description" type="checkbox" name="high">
+        </div>
+        <label for="high" class="ml-3.5"><span
+          class="block text-sm font-semibold text-violet-800">Prioridade Alta</span><span id="high-description"
+                                                                                          class="block text-sm text-violet-600">Afazeres de alta prioridade</span></label>
+      </div>
+      <div class="relative flex items-start py-2 px-3 mx-4 rounded-md hover:bg-gray-100">
+        <div class="flex items-center h-5 mt-1"><input id="medium"
                                                      [checked]="arrayCheckboxes.includes('media')"
                                                      (change)="toggleCheckbox('media', $event)"
                                                      class="medium-checkbox border-gray-200 rounded text-violet-600 focus:ring-violet-500"
                                                      aria-describedby="medium-description" type="checkbox"
                                                      name="medium"></div>
-      <label for="medium" class="ml-3.5"><span
-        class="block text-sm font-semibold text-violet-800">Prioridade Média</span><span id="medium-description"
-                                                                                         class="block text-sm text-violet-600">Afazeres de média prioridade</span></label>
-    </div>
-    <div class="relative flex items-start py-2 px-3 mx-4 rounded-md hover:bg-gray-100">
-      <div class="flex items-center h-5 mt-1"><input id="light"
-                                                     [checked]="arrayCheckboxes.includes('baixa')"
-                                                     (change)="toggleCheckbox('baixa', $event)"
-                                                     class="light-checkbox border-gray-200 rounded text-violet-600 focus:ring-violet-500"
-                                                     aria-describedby="light-description" type="checkbox" name="light">
+        <label for="medium" class="ml-3.5"><span
+          class="block text-sm font-semibold text-violet-800">Prioridade Média</span><span id="medium-description"
+                                                                                           class="block text-sm text-violet-600">Afazeres de média prioridade</span></label>
       </div>
-      <label for="light" class="ml-3.5"><span
-        class="block text-sm font-semibold text-violet-800">Prioridade Baixa</span><span id="light-description"
-                                                                                         class="block text-sm text-violet-600">Afazeres de baixa prioridade</span></label>
-    </div>
-    <div class="relative flex items-start py-2 px-3 mx-4 rounded-md hover:bg-gray-100">
-      <div class="flex items-center h-5 mt-1"><input id="normal"
-                                                     [checked]="arrayCheckboxes.includes('normal')"
-                                                     (change)="toggleCheckbox('normal', $event)"
-                                                     class="normal-checkbox border-gray-200 rounded text-violet-600 focus:ring-violet-500"
-                                                     type="checkbox" name="normal"></div>
-      <label for="normal" class="ml-3.5"><span
-        class="block text-sm font-semibold text-violet-800">Prioridade Normal</span><span id="normal-description"
-                                                                                          class="block text-sm text-violet-600">Afazeres de prioridade normal</span></label>
+      <div class="relative flex items-start py-2 px-3 mx-4 rounded-md hover:bg-gray-100">
+        <div class="flex items-center h-5 mt-1"><input id="light"
+          [checked]="arrayCheckboxes.includes('baixa')"
+          (change)="toggleCheckbox('baixa', $event)"
+          class="light-checkbox border-gray-200 rounded text-violet-600 focus:ring-violet-500"
+          aria-describedby="light-description" type="checkbox" name="light">
+        </div>
+        <label for="light" class="ml-3.5"><span
+          class="block text-sm font-semibold text-violet-800">Prioridade Baixa</span><span id="light-description"
+                                                                                           class="block text-sm text-violet-600">Afazeres de baixa prioridade</span></label>
+      </div>
+      <div class="relative flex items-start py-2 px-3 mx-4 rounded-md hover:bg-gray-100">
+        <div class="flex items-center h-5 mt-1"><input id="normal"
+          [checked]="arrayCheckboxes.includes('normal')"
+          (change)="toggleCheckbox('normal', $event)"
+          class="normal-checkbox border-gray-200 rounded text-violet-600 focus:ring-violet-500"
+          type="checkbox" name="normal"></div>
+        <label for="normal" class="ml-3.5"><span
+          class="block text-sm font-semibold text-violet-800">Prioridade Normal</span><span id="normal-description"
+                                                                                            class="block text-sm text-violet-600">Afazeres de prioridade normal</span></label>
+      </div>
     </div>
   </div>
+
+  <input [(ngModel)]="input" (input)="search(input)" class="ml-4 !bg-white !text-violet-600 !rounded-lg w-full
+   !h-fit !py-3 outline-violet-600 hover:outline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-violet-600 transition-all text-sm md:w-[15rem] lg:w-[30rem]"
+         placeholder="Busque por um afazer..."
+         style="padding-left: 16px"
+  >
+
+  <button (click)="search(input)"
+          class="!bg-violet-500 !rounded-full p-2 !h-fit !ml-4 cursor-pointer outline-violet-600 hover:outline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-violet-600 transition-all text-sm">
+    <svg style="fill: white" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20"
+         viewBox="0 0 50 50">
+      <path
+        d="M 21 3 C 11.601563 3 4 10.601563 4 20 C 4 29.398438 11.601563 37 21 37 C 24.355469 37 27.460938 36.015625 30.09375 34.34375 L 42.375 46.625 L 46.625 42.375 L 34.5 30.28125 C 36.679688 27.421875 38 23.878906 38 20 C 38 10.601563 30.398438 3 21 3 Z M 21 7 C 28.199219 7 34 12.800781 34 20 C 34 27.199219 28.199219 33 21 33 C 13.800781 33 8 27.199219 8 20 C 8 12.800781 13.800781 7 21 7 Z"></path>
+    </svg>
+  </button>
 </div>
-
-
-<input [(ngModel)]="input" (input)="search(input)" class="ml-12 !bg-white !text-violet-600 !rounded-lg w-120
- !h-fit !py-3 !absolute bottom-8 !z-[99] md:top-8 md:top-8 left-1/2 -translate-x-1/2 outline-violet-600 hover:outline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-violet-600 transition-all text-sm"
-       placeholder="Busque por um afazer..."
-       style="padding-left: 16px"
->
-
-<button (click)="search(input)"
-        class=" !bg-violet-500 !rounded-full p-2 !h-fit !ml-79 !my-1.25 !absolute bottom-8 !z-[99] md:top-8 md:top-8 left-1/2 -translate-x-1/2 cursor-pointer outline-violet-600 hover:outline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-violet-600 transition-all text-sm">
-  <svg style="fill: white" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20"
-       viewBox="0 0 50 50">
-    <path
-      d="M 21 3 C 11.601563 3 4 10.601563 4 20 C 4 29.398438 11.601563 37 21 37 C 24.355469 37 27.460938 36.015625 30.09375 34.34375 L 42.375 46.625 L 46.625 42.375 L 34.5 30.28125 C 36.679688 27.421875 38 23.878906 38 20 C 38 10.601563 30.398438 3 21 3 Z M 21 7 C 28.199219 7 34 12.800781 34 20 C 34 27.199219 28.199219 33 21 33 C 13.800781 33 8 27.199219 8 20 C 8 12.800781 13.800781 7 21 7 Z"></path>
-  </svg>
-</button>
-
-

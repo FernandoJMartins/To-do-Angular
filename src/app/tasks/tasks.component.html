@@ -1,4 +1,4 @@
-<div>
+<div class="hidden md:block">
   <button mat-fab extended
   (click)="openNewTaskDialog()"
   class="!bg-violet-500 !text-white !rounded-lg !h-fit !py-3 !fixed bottom-8 !left-8 !z-[99] md:top-8"
@@ -7,16 +7,32 @@
     Novo Afazer
   </button>
 </div>
-<div>
+<div class="block md:hidden">
+  <button mat-fab
+  (click)="openNewTaskDialog()"
+  class="!bg-violet-500 !text-white !rounded-lg !h-fit !py-3 !fixed bottom-8 !left-8 !z-[99] md:top-8"
+  >
+    <mat-icon>post_add</mat-icon>
+  </button>
+</div>
+<div class="flex justify-center pt-9">
   <app-pesquisa-task/>
 </div>
-<div>
+<div class="hidden md:block">
   <button mat-fab extended
   (click)="logout()"
   class="!bg-violet-500 !text-white !rounded-lg !h-fit !py-3 !absolute bottom-8 !right-8 !z-[99] md:top-8"
   >
     <mat-icon>logout</mat-icon>
     Sair
+  </button>
+</div>
+<div class="block md:hidden">
+  <button mat-fab
+  (click)="logout()"
+  class="!bg-violet-500 !text-white !rounded-lg !h-fit !py-3 !absolute bottom-8 !right-8 !z-[99] md:top-8"
+  >
+    <mat-icon>logout</mat-icon>
   </button>
 </div>
 <app-listagem-task

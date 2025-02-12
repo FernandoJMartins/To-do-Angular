@@ -65,8 +65,8 @@
       "donoId": 1,
       "dueDate": "2001-02-01T02:00:00.000Z",
       "dataCriacao": "2025-02-10T17:25:21.013Z",
-      "dataAlteracao": "2025-02-10T17:30:39.547Z",
-      "removido": false
+      "dataAlteracao": "2025-02-12T16:33:09.903Z",
+      "removido": true
     },
     {
       "titulo": "22",
@@ -295,6 +295,54 @@
       "dataAlteracao": "2025-02-12T17:59:10.041Z",
       "removido": false,
       "id": 20
+    },
+    {
+      "titulo": "teste",
+      "descricao": "teste",
+      "prioridade": "normal",
+      "status": "pendente",
+      "donoId": 1,
+      "dueDate": "",
+      "dataCriacao": "2025-02-12T18:08:22.417Z",
+      "dataAlteracao": "2025-02-12T18:08:22.417Z",
+      "removido": false,
+      "id": 21
+    },
+    {
+      "titulo": "nao feito alta",
+      "descricao": "nao feito alta",
+      "prioridade": "alta",
+      "status": "pendente",
+      "donoId": 1,
+      "dueDate": "",
+      "dataCriacao": "2025-02-12T18:15:22.800Z",
+      "dataAlteracao": "2025-02-12T18:15:22.800Z",
+      "removido": false,
+      "id": 22
+    },
+    {
+      "titulo": "media feito",
+      "descricao": "media",
+      "prioridade": "media",
+      "status": "feito",
+      "donoId": 1,
+      "dueDate": "2025-02-22T03:00:00.000Z",
+      "dataCriacao": "2025-02-12T18:15:36.263Z",
+      "dataAlteracao": "2025-02-12T18:15:36.263Z",
+      "removido": false,
+      "id": 23
+    },
+    {
+      "titulo": "baixa",
+      "descricao": "baixa",
+      "prioridade": "baixa",
+      "status": "pendente",
+      "donoId": 1,
+      "dueDate": "",
+      "dataCriacao": "2025-02-12T18:19:22.131Z",
+      "dataAlteracao": "2025-02-12T18:19:22.131Z",
+      "removido": false,
+      "id": 24
     }
   ]
 }

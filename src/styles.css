@@ -13,6 +13,7 @@ body {
    margin: 0;
    font-family: 'Montserrat', cursive, Roboto, "Helvetica Neue", sans-serif;
    background: var(--color-violet-200);
+   overflow-x: hidden;
 }
 
 .font-satisfy {
