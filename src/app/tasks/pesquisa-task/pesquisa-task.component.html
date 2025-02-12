@@ -1,5 +1,5 @@
 <button (click)="changeVisibility()"
-  class="border-0 ml-12 !h-fit !py-3 !absolute bottom-8 !z-[99] md:top-0 md:top-8 left-[25%] hover: cursor-pointer py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-violet-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-violet-600 transition-all text-sm">
+  class="border-0 !h-fit !py-3 !absolute bottom-8 !z-[99] md:top-0 md:top-8 left-[29%] hover: cursor-pointer py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-violet-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-violet-600 transition-all text-sm">
   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
        class="text-violet-600 text-xl iconify iconify--ion" width="1em" height="1em" viewBox="0 0 512 512">
     <path fill="currentColor"
@@ -12,15 +12,16 @@
           stroke-width="2"></path>
   </svg>
 </button>
-<div *ngIf="isDropDownVisible" style="margin-left: -79px"
+<div *ngIf="isDropDownVisible"  style="margin-left: -79px"
   class=" w-[20px] !z-[9999] absolute top-16 right-1/4 my-3 mx-[1rem] md:top-16 md:my-4 md:left-1/4 md:mx-[2.3rem] lg:mx-[-4rem] lg:left-1/3 MuiBox-root css-0"
   tabindex="-1">
   <div id="search-filter-checkbox" class=" min-w-[15rem] bg-white shadow-md rounded-lg p-2 mt-2"><span
     class="block text-sm text-left m-2 italic font-semibold text-violet-400">Por Status</span>
     <div class=" relative flex items-start py-2 px-3 mx-4 rounded-md hover:bg-gray-100">
-      <div class="flex items-center h-5 mt-1"><input id="done"
+      <div class="flex items-center h-5 mt-1"><input id="feito"
                                                      class="done-checkbox border-gray-200 rounded text-violet-600 focus:ring-violet-500"
-                                                     aria-describedby="done-description" type="checkbox" name="done">
+                                                     aria-describedby="done-description" type="checkbox" name="done"
+                                                     (change)="toggleCheckbox('feito', $event)">
       </div>
       <label for="done" class="ml-3.5"><span class="block text-sm font-semibold text-violet-800">Feitos</span><span
         id="done-description" class="block text-sm text-violet-600">Afazeres finalizados</span></label></div>
@@ -28,7 +29,8 @@
       <div class="flex items-center h-5 mt-1"><input id="notDone"
                                                      class="notDone-checkbox border-gray-200 rounded text-violet-600 focus:ring-violet-500"
                                                      aria-describedby="item-checkbox-description" type="checkbox"
-                                                     checked="" name="notDone"></div>
+                                                     name="notDone"
+                                                     (change)="toggleCheckbox('pendente', $event)"></div>
       <label for="notDone" class="ml-3.5"><span
         class="block text-sm font-semibold text-violet-800">Não Feitos</span><span id="notDone-description"
                                                                                    class="block text-sm text-violet-600">Afazeres pendentes</span></label>
@@ -36,6 +38,7 @@
     <span class="block text-sm text-left mt-4 m-2 italic font-semibold text-violet-400">Por Prioridade</span>
     <div class="relative flex items-start py-2 px-3 mx-4 rounded-md hover:bg-gray-100">
       <div class="flex items-center h-5 mt-1"><input id="high"
+                                                     (change)="toggleCheckbox('alta', $event)"
                                                      class="high-checkbox border-gray-200 rounded text-violet-600 focus:ring-violet-500"
                                                      aria-describedby="high-description" type="checkbox" name="high">
       </div>
@@ -45,6 +48,7 @@
     </div>
     <div class="relative flex items-start py-2 px-3 mx-4 rounded-md hover:bg-gray-100">
       <div class="flex items-center h-5 mt-1"><input id="medium"
+                                                     (change)="toggleCheckbox('media', $event)"
                                                      class="medium-checkbox border-gray-200 rounded text-violet-600 focus:ring-violet-500"
                                                      aria-describedby="medium-description" type="checkbox"
                                                      name="medium"></div>
@@ -54,6 +58,7 @@
     </div>
     <div class="relative flex items-start py-2 px-3 mx-4 rounded-md hover:bg-gray-100">
       <div class="flex items-center h-5 mt-1"><input id="light"
+                                                     (change)="toggleCheckbox('baixa', $event)"
                                                      class="light-checkbox border-gray-200 rounded text-violet-600 focus:ring-violet-500"
                                                      aria-describedby="light-description" type="checkbox" name="light">
       </div>
@@ -63,6 +68,7 @@
     </div>
     <div class="relative flex items-start py-2 px-3 mx-4 rounded-md hover:bg-gray-100">
       <div class="flex items-center h-5 mt-1"><input id="normal"
+                                                     (change)="toggleCheckbox('normal', $event)"
                                                      class="normal-checkbox border-gray-200 rounded text-violet-600 focus:ring-violet-500"
                                                      type="checkbox" name="normal"></div>
       <label for="normal" class="ml-3.5"><span

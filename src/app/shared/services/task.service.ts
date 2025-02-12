@@ -15,7 +15,7 @@ export class TaskService {
 
   }
 
-  listar(userId: number, filtro: string = ''): Observable<Task[]> {
+  listar(userId: number, filtro: string = '', arrayCheckbox: string[] = []): Observable<Task[]> {
     const params: any = {
       donoId: userId,
       removido_ne: true,
@@ -25,6 +25,15 @@ export class TaskService {
     // Se houver filtro, aplicar ele em qualquer parametro
     if (filtro.trim()) {
       params['q'] = filtro;
+    }
+
+    if (arrayCheckbox.length > 0) {
+      // Se já houver um valor para 'q', garantir que os checkboxes sejam separados por vírgulas
+      if (params['q']) {
+        params['q'] += ',' + arrayCheckbox.join('+');
+      } else {
+        params['q'] = arrayCheckbox.join(',');
+      }
     }
 
     return this.httpClient.get<Task[]>(this.URL, { params });
