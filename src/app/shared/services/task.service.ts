@@ -20,6 +20,7 @@ export class TaskService {
       .set ('donoId', userId.toString())
       .set('removido_ne', 'true')
       .set('_sort', 'dataCriacao')
+      .set('_order', 'desc')
 
     if (searchBar.trim()){
       httpParams = httpParams.set('q', searchBar);
