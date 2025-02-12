@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Task} from '../model/Task';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import { environment } from '../../../environments/environment';
 
@@ -15,29 +15,29 @@ export class TaskService {
 
   }
 
-  listar(userId: number, filtro: string = '', arrayCheckbox: string[] = []): Observable<Task[]> {
-    const params: any = {
-      donoId: userId,
-      removido_ne: true,
-      _sort: 'dataCriacao',
-    };
+  listar(userId: number, searchBar: string = '', arrayCheckbox: string[] = []): Observable<Task[]> {
+    let httpParams = new HttpParams()
+      .set ('donoId', userId.toString())
+      .set('removido_ne', 'true')
+      .set('_sort', 'dataCriacao')
 
-    // Se houver filtro, aplicar ele em qualquer parametro
-    if (filtro.trim()) {
-      params['q'] = filtro;
+    if (searchBar.trim()){
+      httpParams = httpParams.set('q', searchBar);
     }
 
-    if (arrayCheckbox.length > 0) {
-      // Se já houver um valor para 'q', garantir que os checkboxes sejam separados por vírgulas
-      if (params['q']) {
-        params['q'] += ',' + arrayCheckbox.join('+');
-      } else {
-        params['q'] = arrayCheckbox.join(',');
+    arrayCheckbox.forEach(element => {
+      if (element.trim() === 'feito' || element.trim() === 'pendente'){
+        httpParams = httpParams.append('status', element)
       }
-    }
+      else{
+        httpParams = httpParams.append('prioridade', element)
+      }
+    })
 
-    return this.httpClient.get<Task[]>(this.URL, { params });
+    return this.httpClient.get<Task[]>(this.URL, {params: httpParams});
+
   }
+
 
   inserir(task: Task): Observable<Task> {
     return this.httpClient.post<Task>(this.URL, task);

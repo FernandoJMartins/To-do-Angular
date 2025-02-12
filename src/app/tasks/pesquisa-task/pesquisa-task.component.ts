@@ -22,8 +22,8 @@ export class PesquisaTaskComponent {
     this.userId = getCurrentUserData().user.id;
   }
 
-  search(input : string = '', arrayCheckboxes: string[] = []) {
-    this.tasksComponent.getTasks(input, arrayCheckboxes);
+  search(input : string = '') {
+    this.tasksComponent.getTasks(input, this.arrayCheckboxes);
   }
 
   changeVisibility() {
@@ -42,13 +42,12 @@ export class PesquisaTaskComponent {
     if ((event.target as HTMLInputElement).checked) {
       if(!this.arrayCheckboxes.includes(value)) {
         this.arrayCheckboxes.push(value);
-        console.log(this.arrayCheckboxes);
       }
     }
     else{
       this.arrayCheckboxes = this.arrayCheckboxes.filter((c) => c !== value)
     }
-    this.search(this.input, this.arrayCheckboxes);
+    this.search(this.input);
   }
 
 }

@@ -21,6 +21,7 @@
       <div class="flex items-center h-5 mt-1"><input id="feito"
                                                      class="done-checkbox border-gray-200 rounded text-violet-600 focus:ring-violet-500"
                                                      aria-describedby="done-description" type="checkbox" name="done"
+                                                     [checked]="arrayCheckboxes.includes('feito')"
                                                      (change)="toggleCheckbox('feito', $event)">
       </div>
       <label for="done" class="ml-3.5"><span class="block text-sm font-semibold text-violet-800">Feitos</span><span
@@ -30,6 +31,8 @@
                                                      class="notDone-checkbox border-gray-200 rounded text-violet-600 focus:ring-violet-500"
                                                      aria-describedby="item-checkbox-description" type="checkbox"
                                                      name="notDone"
+
+                                                     [checked]="arrayCheckboxes.includes('pendente')"
                                                      (change)="toggleCheckbox('pendente', $event)"></div>
       <label for="notDone" class="ml-3.5"><span
         class="block text-sm font-semibold text-violet-800">Não Feitos</span><span id="notDone-description"
@@ -38,6 +41,7 @@
     <span class="block text-sm text-left mt-4 m-2 italic font-semibold text-violet-400">Por Prioridade</span>
     <div class="relative flex items-start py-2 px-3 mx-4 rounded-md hover:bg-gray-100">
       <div class="flex items-center h-5 mt-1"><input id="high"
+                                                     [checked]="arrayCheckboxes.includes('alta')"
                                                      (change)="toggleCheckbox('alta', $event)"
                                                      class="high-checkbox border-gray-200 rounded text-violet-600 focus:ring-violet-500"
                                                      aria-describedby="high-description" type="checkbox" name="high">
@@ -48,6 +52,7 @@
     </div>
     <div class="relative flex items-start py-2 px-3 mx-4 rounded-md hover:bg-gray-100">
       <div class="flex items-center h-5 mt-1"><input id="medium"
+                                                     [checked]="arrayCheckboxes.includes('media')"
                                                      (change)="toggleCheckbox('media', $event)"
                                                      class="medium-checkbox border-gray-200 rounded text-violet-600 focus:ring-violet-500"
                                                      aria-describedby="medium-description" type="checkbox"
@@ -58,6 +63,7 @@
     </div>
     <div class="relative flex items-start py-2 px-3 mx-4 rounded-md hover:bg-gray-100">
       <div class="flex items-center h-5 mt-1"><input id="light"
+                                                     [checked]="arrayCheckboxes.includes('baixa')"
                                                      (change)="toggleCheckbox('baixa', $event)"
                                                      class="light-checkbox border-gray-200 rounded text-violet-600 focus:ring-violet-500"
                                                      aria-describedby="light-description" type="checkbox" name="light">
@@ -68,6 +74,7 @@
     </div>
     <div class="relative flex items-start py-2 px-3 mx-4 rounded-md hover:bg-gray-100">
       <div class="flex items-center h-5 mt-1"><input id="normal"
+                                                     [checked]="arrayCheckboxes.includes('normal')"
                                                      (change)="toggleCheckbox('normal', $event)"
                                                      class="normal-checkbox border-gray-200 rounded text-violet-600 focus:ring-violet-500"
                                                      type="checkbox" name="normal"></div>
