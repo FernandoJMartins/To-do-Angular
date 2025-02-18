@@ -25,3 +25,7 @@ body {
 .font-montserrat {
   font-family: 'Montserrat', cursive;
 }
+
+.mdc-switch__track::after {
+  background: #8b5cf6 !important;
+}
