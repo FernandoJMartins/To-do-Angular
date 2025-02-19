@@ -56,7 +56,7 @@ export class CadastroComponent {
       this.passwordErrorMessage.set('Digite sua senha.');
     }
     else if (this.passwordFormControl.hasError('minlength')) {
-      this.passwordErrorMessage.set('A senha deve ter no mínimo 3 caracteres.');}
+      this.passwordErrorMessage.set('A senha deve ter no mínimo 5 caracteres.');}
     else {
       this.passwordErrorMessage.set('');
     }
