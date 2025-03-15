@@ -4,12 +4,12 @@
     <mat-slide-toggle (toggleChange)="toggleSwitch()" [checked]="task.status === 'feito'"/>
   </div>
   <div>
-    <h3 class="todo-title text-lg font-semibold text-gray-700">
+    <h3 class="todo-title text-lg font-semibold text-gray-700 {{isTaskDone() ? 'line-through italic' : ''}}">
       {{task.titulo}}
     </h3>
     <div class="mt-4">
       <p class="text-justify text-lg text-black-500">
-        <span class="todo-text">
+        <span class="todo-text {{isTaskDone() ? 'line-through italic' : ''}}">
           {{task.descricao}}
         </span>
       </p>
