@@ -6,7 +6,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { AuthService } from './shared/services/auth.service';
+import { AuthService } from './shared/services/auth-rest/auth.service';
 import { MensagemSnackService } from './shared/services/snack.service';
 import { AuthModule } from './auth/auth.module';
 import { MaterialModule } from './shared/modules/material.module';
@@ -15,6 +15,7 @@ import { TasksModule } from './tasks/tasks.module';
 import { LogoModule } from './shared/components/logo/logo.module';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { DialogModule } from './shared/components/dialog/dialog.module';
+import { FirebaseModule } from './firestore/firestore.module';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { DialogModule } from './shared/components/dialog/dialog.module';
     LogoModule,
     FormsModule,
     DialogModule,
+    FirebaseModule,
   ],
   providers: [
     provideHttpClient(),

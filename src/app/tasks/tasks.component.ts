@@ -17,7 +17,7 @@ export class TasksComponent implements OnInit {
 
   tasks: Array<Task> = [];
 
-  userId!: number;
+  userId!: string;
   dialogRef!: MatDialogRef<FormTaskComponent>;
 
 

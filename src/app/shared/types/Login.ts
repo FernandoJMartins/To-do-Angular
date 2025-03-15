@@ -4,6 +4,6 @@ export type Login = {
 }
 
 type User = {
-  id: number,
+  id: string,
   email: string
 }

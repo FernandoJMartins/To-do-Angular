@@ -14,7 +14,7 @@ import {indexOf} from 'json-server-auth';
 export class PesquisaTaskComponent {
   input : string = '';
   arrayCheckboxes: string[] = [];
-  userId: number;
+  userId: string;
   @Input() tasks!: Array<Task>;
   isDropDownVisible : boolean = false;
 

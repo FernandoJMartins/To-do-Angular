@@ -15,7 +15,7 @@ export class TaskService {
 
   }
 
-  listar(userId: number, searchBar: string = '', arrayCheckbox: string[] = []): Observable<Task[]> {
+  listar(userId: string, searchBar: string = '', arrayCheckbox: string[] = []): Observable<Task[]> {
     let httpParams = new HttpParams()
       .set ('donoId', userId.toString())
       .set('removido_ne', 'true')

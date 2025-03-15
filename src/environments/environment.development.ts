@@ -7,4 +7,15 @@ export const environment = {
   debugMode: true,
   encryptionKey: encKey,
   currentInstance: 'development',
+
+  // Firebase
+  firebaseConfig: {
+    apiKey: "",
+    authDomain: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: "",
+  }
+
 };

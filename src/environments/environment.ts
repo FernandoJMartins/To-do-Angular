@@ -9,5 +9,14 @@ export const environment = {
   localHostDevelopment: false,
   debugMode: true,
   encryptionKey: '',
-  currentInstance: ''
+  currentInstance: '',
+
+  firebaseConfig: {
+    apiKey: "",
+    authDomain: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: "",
+  }
 };

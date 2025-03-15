@@ -4,7 +4,7 @@ export class Task {
   descricao?: string;
   prioridade?: 'baixa' | 'normal' | 'media' | 'alta';
   status?: 'feito' | 'pendente';
-  donoId?: number; // FK para Usuario
+  donoId?: string; // FK para Usuario
   dataCriacao?: Date;
   dueDate?: Date;
   dataAlteracao?: Date;

@@ -6,6 +6,7 @@ import { MaterialModule } from '../shared/modules/material.module';
 import { RouterLink } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LogoModule } from "../shared/components/logo/logo.module";
+import { FirebaseModule } from '../firestore/firestore.module';
 
 
 
@@ -22,6 +23,7 @@ import { LogoModule } from "../shared/components/logo/logo.module";
     ReactiveFormsModule,
     RouterLink,
     LogoModule,
+    FirebaseModule,
 ]
 })
 export class AuthModule { }

@@ -9,7 +9,7 @@ export function getCurrentUserData(): Login {
   const login: Login = {
     accessToken: localStorage.getItem("accessToken") || "",
     user: {
-      id: Number(localStorage.getItem("userId")),
+      id: localStorage.getItem("userId") || "",
       email: ""
     }
   }

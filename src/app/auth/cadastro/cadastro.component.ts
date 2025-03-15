@@ -1,9 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { MensagemSnackService } from '../../shared/services/snack.service';
-import { AuthService } from '../../shared/services/auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { saveUserData } from '../../utils/localStorage';
+import { AuthFirebaseService } from '../../shared/services/auth-firebase/auth-firebase.service';
+import { Login } from '../../shared/types/Login';
+
 
 @Component({
   selector: 'app-cadastro',
@@ -28,7 +30,7 @@ export class CadastroComponent {
   nomeErrorMessage = signal('');
 
   constructor(
-    private authService: AuthService,
+    private authService: AuthFirebaseService,
     private snackService: MensagemSnackService,
     private router: Router,
   ) { }
@@ -80,18 +82,22 @@ export class CadastroComponent {
     }
 
     this.authService.register(
-      this.nomeFormControl.value,
-      this.emailFormControl.value,
-      this.passwordFormControl.value,
-      ).subscribe(
-        (register) => {
-          this.snackService.sucesso('Cadastro realizado com sucesso');
-          saveUserData(register);
-          this.router.navigate(['/tasks']);
-        },
-        (error) => {
-          this.snackService.erro('E-mail já cadastrado na plataforma.');
+      this.nomeFormControl.value!,
+      this.emailFormControl.value!,
+      this.passwordFormControl.value!,
+    ).then((registerUser: Login | null) => {
+        this.snackService.sucesso('Cadastro realizado com sucesso');
+        if (registerUser) {
+          if (registerUser.user) {
+            saveUserData(registerUser);
+          }
+          else {
+            this.snackService.erro('Ocorreu um erro ao realizar o cadastro, tente novamente.');
+          }
         }
-    );
+        this.router.navigate(['/tasks']);
+      }).catch((error: any) => {
+        this.snackService.erro(error.message);
+      });
   }
 }
