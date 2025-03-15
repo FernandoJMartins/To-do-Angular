@@ -1,9 +1,7 @@
-import {Component, ElementRef, EventEmitter, HostListener, input, Input, OnInit} from '@angular/core';
-import {TaskService} from '../../shared/services/task.service';
+import {Component, ElementRef, HostListener, Input} from '@angular/core';
 import {getCurrentUserData} from '../../utils/localStorage';
-import { Task } from '../../shared/model/Task';
+import {Task} from '../../shared/model/Task';
 import {TasksComponent} from '../tasks.component';
-import {indexOf} from 'json-server-auth';
 
 @Component({
   selector: 'app-pesquisa-task',
