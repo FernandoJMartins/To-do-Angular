@@ -35,10 +35,6 @@ export class CardTaskComponent implements OnInit {
   }
 
   setCardColor(): void {
-    if (this.isTaskDone()) {
-      this.cardColor = '!bg-gray-200';
-      return;
-    }
     switch (this.task.prioridade) {
       case 'alta':
         this.cardColor = '!bg-red-200';

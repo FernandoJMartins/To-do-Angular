@@ -1,15 +1,15 @@
-<mat-card class="{{cardColor}} shadow-md rounded-lg p-4 relative overflow-y-auto !min-w-[30rem] !max-w-[30rem] !h-[26rem] font-montserrat">
+<mat-card class="{{cardColor}} {{isTaskDone() ? 'done-task': ''}} shadow-md rounded-lg p-4 relative overflow-y-auto !min-w-[30rem] !max-w-[30rem] !h-[26rem] font-montserrat">
   <div class="flex justify-end items-center space-x-2.5 mb-3">
     <mat-label class="text-md font-medium text-violet-900">Feito</mat-label>
     <mat-slide-toggle (toggleChange)="toggleSwitch()" [checked]="task.status === 'feito'"/>
   </div>
   <div>
-    <h3 class="todo-title text-lg font-semibold text-gray-700 {{isTaskDone() ? 'line-through italic' : ''}}">
+    <h3 class="todo-title text-lg font-semibold text-gray-700 {{isTaskDone() ? 'done-task-text': ''}}">
       {{task.titulo}}
     </h3>
     <div class="mt-4">
       <p class="text-justify text-lg text-black-500">
-        <span class="todo-text {{isTaskDone() ? 'line-through italic' : ''}}">
+        <span class="todo-text {{isTaskDone() ? 'done-task-text': ''}}">
           {{task.descricao}}
         </span>
       </p>

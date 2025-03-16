@@ -1,0 +1,11 @@
+.done-task {
+  background-image: url('../../assets/crumpled-paper-texture.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.done-task-text {
+  text-decoration: line-through;
+  font-style: italic;
+}
