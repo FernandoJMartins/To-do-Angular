@@ -1,10 +1,9 @@
 import { Component, signal } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MensagemSnackService } from '../../shared/services/snack.service';
+import { MensagemSnackService } from '../../shared/services/message/snack.service';
 import { Router } from '@angular/router';
 import { saveUserData } from '../../utils/localStorage';
-import { AuthFirebaseService } from '../../shared/services/auth-firebase/auth-firebase.service';
-import { Login } from '../../shared/types/Login';
+import { IAuthService } from '../../interfaces/auth-service.interface';
 
 
 @Component({
@@ -27,7 +26,7 @@ export class LoginComponent {
   passwordErrorMessage = signal('');
 
   constructor(
-    private authService: AuthFirebaseService,
+    private authService: IAuthService,
     private snackService: MensagemSnackService,
     private router: Router,
   ) { }
@@ -60,19 +59,15 @@ export class LoginComponent {
 
   onSubmit() {
     this.authService.login(
-      this.emailFormControl.value, this.passwordFormControl.value).then(
-        (login: Login | null) => {
-          this.snackService.sucesso('Login realizado com sucesso');
-          if (login) {
-            saveUserData(login);
-          } else {
-            this.snackService.erro('Erro ao realizar login');
-          }
-          this.router.navigate(['/tasks']);
-        }).catch(
-        (error: any) => {
-          this.snackService.erro(error.message);
-        }
-    );
+      this.emailFormControl.value, this.passwordFormControl.value).subscribe({
+      next: (login) => {
+        this.snackService.sucesso('Login realizado com sucesso');
+        saveUserData(login);
+        this.router.navigate(['/tasks']);
+      },
+      error: (error) => {
+        this.snackService.erro(error.message);
+      }
+    });
   }
 }

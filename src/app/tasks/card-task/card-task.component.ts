@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Task } from '../../shared/model/Task';
-import { TaskService } from '../../shared/services/task.service';
-import { MensagemSnackService } from '../../shared/services/snack.service';
+import { TaskService } from '../../shared/services/task/task.service';
+import { MensagemSnackService } from '../../shared/services/message/snack.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { FormTaskComponent } from '../form-task/form-task.component';
 import { DialogComponent } from '../../shared/components/dialog/dialog.component';
@@ -48,11 +48,11 @@ export class CardTaskComponent implements OnInit {
         this.cardColor = '!bg-orange-200';
         break;
 
-      case 'baixa':
+      case 'normal':
         this.cardColor = '!bg-yellow-100';
         break;
 
-      case 'normal':
+      case 'baixa':
         this.cardColor = '!bg-white';
         break;
     }

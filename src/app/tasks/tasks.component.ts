@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { getCurrentUserData, removeUserData } from '../utils/localStorage';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { FormTaskComponent } from './form-task/form-task.component';
-import { TaskService } from '../shared/services/task.service';
+import { TaskService } from '../shared/services/task/task.service';
 import { Task } from '../shared/model/Task';
-import { MensagemSnackService } from '../shared/services/snack.service';
+import { MensagemSnackService } from '../shared/services/message/snack.service';
 import { Router } from '@angular/router';
 
 @Component({

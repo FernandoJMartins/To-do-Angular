@@ -3,51 +3,55 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { Login } from '../../types/Login';
 import { removeUserData } from '../../../utils/localStorage';
+import { from, map, Observable } from 'rxjs';
+import { IAuthService } from '../../../interfaces/auth-service.interface';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthFirebaseService {
+export class AuthFirebaseService implements IAuthService {
   constructor(private afAuth: AngularFireAuth, private router: Router) {}
 
-  login(email: string, password: string): Promise<Login | null> {
-    return this.afAuth.signInWithEmailAndPassword(email, password)
-      .then((userCredential) => {
+  login(email: string, password: string): Observable<Login> {
+    return from(
+      this.afAuth.signInWithEmailAndPassword(email, password)
+    ).pipe(
+      map(userCredential => {
         const user = userCredential.user;
-        if (user) {
-          const loginUser: Login = {
-            accessToken: user.refreshToken,
-            user: {
-              id: user.uid,
-              email: user.email || "",
-            }
-          };
-          return loginUser;
+        if (!user) {
+          throw new Error('Usuário não encontrado');
         }
-        return null
-      });
+        return {
+          accessToken: user.refreshToken,
+          user: {
+            id: user.uid,
+            email: user.email || "",
+          }
+        } as Login;
+      })
+    );
   }
-
-  register(nome: string, email: string, password: string): Promise<Login | null> {
-    return this.afAuth.createUserWithEmailAndPassword(email, password)
-      .then((userCredential) => {
+  register(name: string, email: string, password: string): Observable<Login> {
+    return from(
+      this.afAuth.createUserWithEmailAndPassword(email, password)
+    ).pipe(
+      map(userCredential => {
         const user = userCredential.user;
-        if (user) {
-          user.updateProfile({
-            displayName: nome,
-          })
-          const loginUser: Login = {
-            accessToken: user.refreshToken,
-            user: {
-              id: user.uid,
-              email: user.email || "",
-            }
-          };
-          return loginUser;
+        if (!user) {
+          throw new Error('Falha na criação do usuário');
         }
-        return null
-      });
+        user.updateProfile({ displayName: name });
+
+        return {
+          accessToken: user.refreshToken,
+          user: {
+            id: user.uid,
+            email: user.email || "",
+          }
+        } as Login;
+      })
+    );
   }
 
   logout(): Promise<void> {
