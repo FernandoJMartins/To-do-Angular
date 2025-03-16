@@ -60,14 +60,14 @@ export class CardTaskComponent implements OnInit {
   }
 
   atualizarTask(): void {
-    this.taskService.atualizar(this.task).subscribe(
-      () => {
-        this.snackService.sucesso("Status atualizado!");
-    },
-      (error) => {
-        this.snackService.erro("Erro ao atualizar status!");
+    this.taskService.atualizar(this.task).subscribe({
+      next: () => {
+      this.snackService.sucesso("Status atualizado!");
+      },
+      error: (error) => {
+      this.snackService.erro("Erro ao atualizar status!");
       }
-    )
+    });
     this.setCardColor();
   }
 

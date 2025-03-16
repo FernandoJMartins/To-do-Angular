@@ -64,14 +64,15 @@ export class TasksComponent implements OnInit {
         removido: false,
       }
 
-      this.taskService.inserir(data).subscribe(
-        (task) => {
+      this.taskService.inserir(data).subscribe({
+        next: (task) => {
           this.snackService.sucesso('Afazer criado!');
           this.getTasks();
           dialogRef.close();
-      },
-      (error) => {
-        this.snackService.erro('Erro ao tentar criar afazer.');
+        },
+        error: (error) => {
+          this.snackService.erro('Erro ao tentar criar afazer.');
+        }
       });
     });
 
@@ -84,14 +85,14 @@ export class TasksComponent implements OnInit {
   }
 
   onDelete(task: Task): void {
-    this.taskService.remover(task).subscribe(
-      () => {
-        this.snackService.sucesso('Afazer removido!');
+    this.taskService.remover(task).subscribe({
+      next: () => {
+      this.snackService.sucesso('Afazer removido!');
       },
-      (error) => {
-        this.snackService.erro('Erro ao tentar remover afazer.');
+      error: (error) => {
+      this.snackService.erro('Erro ao tentar remover afazer.');
       }
-    )
+    });
   }
 
   logout(): void {
