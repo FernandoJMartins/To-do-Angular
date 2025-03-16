@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
 export class TasksComponent implements OnInit {
 
   tasks: Array<Task> = [];
+  noTasksLabel = 'Nenhum afazer cadastrado.'
 
   userId!: string;
   dialogRef!: MatDialogRef<FormTaskComponent>;
@@ -35,6 +36,9 @@ export class TasksComponent implements OnInit {
   }
 
   getTasks(filtro: string = '', arrayCheckbox: string[] = []): void {
+    if (filtro !== '' || arrayCheckbox.length > 0) {
+      this.noTasksLabel = 'Nenhum afazer encontrado.';
+    }
     this.taskService.listar(this.userId, filtro, arrayCheckbox).subscribe(
       (tasks) => {
         this.tasks = tasks;

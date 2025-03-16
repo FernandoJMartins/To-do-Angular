@@ -78,6 +78,22 @@
                                                                                            class="block text-sm text-violet-600">Afazeres de média prioridade</span></label>
       </div>
       <div class="relative flex items-start py-2 px-3 mx-4 rounded-md hover:bg-gray-100">
+        <div class="flex items-center h-5 mt-1"><input id="normal"
+          [checked]="arrayCheckboxes.includes('normal')"
+          (change)="toggleCheckbox('normal', $event)"
+          class="normal-checkbox border-gray-200 rounded text-violet-600 focus:ring-violet-500"
+          type="checkbox" name="normal">
+        </div>
+        <label for="normal" class="ml-3.5">
+          <span
+            class="block text-sm font-semibold text-violet-800">Prioridade Normal
+          </span>
+          <span id="normal-description" class="block text-sm text-violet-600">
+            Afazeres de prioridade normal
+          </span>
+        </label>
+      </div>
+      <div class="relative flex items-start py-2 px-3 mx-4 rounded-md hover:bg-gray-100">
         <div class="flex items-center h-5 mt-1"><input id="light"
           [checked]="arrayCheckboxes.includes('baixa')"
           (change)="toggleCheckbox('baixa', $event)"
@@ -85,18 +101,7 @@
           aria-describedby="light-description" type="checkbox" name="light">
         </div>
         <label for="light" class="ml-3.5"><span
-          class="block text-sm font-semibold text-violet-800">Prioridade Baixa</span><span id="light-description"
-                                                                                           class="block text-sm text-violet-600">Afazeres de baixa prioridade</span></label>
-      </div>
-      <div class="relative flex items-start py-2 px-3 mx-4 rounded-md hover:bg-gray-100">
-        <div class="flex items-center h-5 mt-1"><input id="normal"
-          [checked]="arrayCheckboxes.includes('normal')"
-          (change)="toggleCheckbox('normal', $event)"
-          class="normal-checkbox border-gray-200 rounded text-violet-600 focus:ring-violet-500"
-          type="checkbox" name="normal"></div>
-        <label for="normal" class="ml-3.5"><span
-          class="block text-sm font-semibold text-violet-800">Prioridade Normal</span><span id="normal-description"
-                                                                                            class="block text-sm text-violet-600">Afazeres de prioridade normal</span></label>
+          class="block text-sm font-semibold text-violet-800">Prioridade Baixa</span><span id="light-description" class="block text-sm text-violet-600">Afazeres de baixa prioridade</span></label>
       </div>
     </div>
   </div>

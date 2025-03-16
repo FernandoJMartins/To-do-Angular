@@ -11,6 +11,8 @@ export class ListagemTaskComponent{
   @Input() tasks: Task[] = [];
   @Output() delete = new EventEmitter<Task>();
 
+  @Input() noTasksLabel = '';
+
   constructor() { }
 
   onDelete(task: Task): void {
