@@ -11,6 +11,23 @@ Douglas Carneiro - 20231370002
 SPRING BOOT<br>
 [access repository](https://github.com/dougcarneiro/todo-spring)
 
+
+# Technologies Used
+
+## **Frontend**
+- **Framework:** Angular  
+- **Languages:** TypeScript, HTML  
+- **Styling:** Tailwind CSS  
+
+## **Backend**
+- **Framework:** Spring Boot  
+- **Language:** Java  
+- **Database:** PostgreSQL  
+
+## **Authentication & User Data**
+- **Authentication:** Firebase Authentication  
+- **User Data Storage:** Firestore
+
 ## Development server
 
 To start a local development server, run:
