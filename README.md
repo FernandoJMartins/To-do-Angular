@@ -3,12 +3,12 @@
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.5.
 
 ## Integrantes
-Fernando Júlio da Silva Martins - 20231370025
+Fernando Júlio da Silva Martins - 20231370025<br>
 Douglas Carneiro - 20231370002
 
 ## Dependencia (PDIST):
 
-SPRING BOOT
+SPRING BOOT<br>
 [acessar repositório](https://github.com/dougcarneiro/todo-spring)
 
 ## Development server
