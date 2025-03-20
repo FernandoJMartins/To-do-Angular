@@ -17,7 +17,7 @@ SPRING BOOT<br>
 ## **Frontend**
 - **Framework:** Angular  
 - **Languages:** TypeScript, HTML  
-- **Styling:** Tailwind CSS  
+- **Styling:** Tailwind CSS, Angular Material 
 
 ## **Backend**
 - **Framework:** Spring Boot  
