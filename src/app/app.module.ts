@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { provideHttpClient } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -17,6 +17,7 @@ import { DialogModule } from './shared/components/dialog/dialog.module';
 import { FirebaseModule } from './firestore/firestore.module';
 import { IAuthService } from './interfaces/auth-service.interface';
 import { AuthFirebaseService } from './shared/services/auth-firebase/auth-firebase.service';
+import { ErroInterceptor } from './interceptor/erro-interceptor';
 
 
 @NgModule({
@@ -37,6 +38,12 @@ import { AuthFirebaseService } from './shared/services/auth-firebase/auth-fireba
   ],
   providers: [
     provideHttpClient(),
+    provideHttpClient(withInterceptorsFromDi()),
+    {
+        provide: HTTP_INTERCEPTORS,
+        useClass: ErroInterceptor,
+        multi: true
+    },
     provideAnimationsAsync(),
     provideNativeDateAdapter(),
     MensagemSnackService,
